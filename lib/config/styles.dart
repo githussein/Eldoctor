@@ -13,6 +13,13 @@ class Styles {
     fontWeight: FontWeight.w600,
   );
 
+  //BookNow Text Style
+  static const bookNowTextStyle = TextStyle(
+    color: Colors.grey,
+    fontSize: 16.0,
+    fontWeight: FontWeight.w600,
+  );
+
   static const tabTextStyle = TextStyle(
     fontSize: 16.0,
     fontWeight: FontWeight.w600,

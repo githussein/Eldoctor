@@ -83,15 +83,10 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  'اختر التخصص',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  textDirection: TextDirection.rtl,
-                ),
-              ],
+            Text(
+              'اختر التخصص',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              textDirection: TextDirection.rtl,
             ),
             categoriesScroller,
           ],
@@ -114,15 +109,10 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  'خدمات سريعة',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  textDirection: TextDirection.rtl,
-                ),
-              ],
+            Text(
+              'مواعيد داخل عيادتنا',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              textDirection: TextDirection.rtl,
             ),
             servicesScroller,
           ],
@@ -145,15 +135,10 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  'خدمات أخرى',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  textDirection: TextDirection.rtl,
-                ),
-              ],
+            Text(
+              'أسعارنا',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              textDirection: TextDirection.rtl,
             ),
             othersScroller,
           ],
@@ -179,7 +164,7 @@ class CategoriesScroller extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double categoryHeight = MediaQuery.of(context).size.height * 0.2;
-    final double categoryWidth = 88.0;
+    final double categoryWidth = 90.0;
     final double cardInnerSpace = 12.0;
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
@@ -206,7 +191,7 @@ class CategoriesScroller extends StatelessWidget {
                     children: <Widget>[
                       Image.asset('assets/images/test.png'),
                       Text(
-                        "لقاحات",
+                        "أطباء",
                         style: TextStyle(fontSize: 14, color: Colors.black),
                       ),
                     ],
@@ -228,7 +213,7 @@ class CategoriesScroller extends StatelessWidget {
                     children: <Widget>[
                       Image.asset('assets/images/test.png'),
                       Text(
-                        "لقاحات",
+                        "تمريض",
                         style: TextStyle(fontSize: 14, color: Colors.black),
                       ),
                     ],
@@ -250,7 +235,7 @@ class CategoriesScroller extends StatelessWidget {
                     children: <Widget>[
                       Image.asset('assets/images/test.png'),
                       Text(
-                        "لقاحات",
+                        "علاج طبيعي",
                         style: TextStyle(fontSize: 14, color: Colors.black),
                       ),
                     ],
@@ -272,7 +257,7 @@ class CategoriesScroller extends StatelessWidget {
                     children: <Widget>[
                       Image.asset('assets/images/test.png'),
                       Text(
-                        "لقاحات",
+                        "أسنان",
                         style: TextStyle(fontSize: 14, color: Colors.black),
                       ),
                     ],
@@ -294,8 +279,144 @@ class CategoriesScroller extends StatelessWidget {
                     children: <Widget>[
                       Image.asset('assets/images/test.png'),
                       Text(
-                        "لقاحات",
+                        "فحص كورونا",
                         style: TextStyle(fontSize: 14, color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                width: categoryWidth,
+                margin: EdgeInsets.only(right: 10),
+                height: categoryHeight,
+                decoration: BoxDecoration(
+                    color: Colors.red.shade200,
+                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                child: Padding(
+                  padding: EdgeInsets.all(cardInnerSpace),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Image.asset('assets/images/test.png'),
+                      Text(
+                        "المختبر",
+                        style: TextStyle(fontSize: 14, color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                width: categoryWidth,
+                margin: EdgeInsets.only(right: 10),
+                height: categoryHeight,
+                decoration: BoxDecoration(
+                    color: Colors.lightGreenAccent.shade200,
+                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                child: Padding(
+                  padding: EdgeInsets.all(cardInnerSpace),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Image.asset('assets/images/test.png'),
+                      Text(
+                        "أشعة",
+                        style: TextStyle(fontSize: 14, color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                width: categoryWidth,
+                margin: EdgeInsets.only(right: 10),
+                height: categoryHeight,
+                decoration: BoxDecoration(
+                    color: Colors.pink.shade200,
+                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                child: Padding(
+                  padding: EdgeInsets.all(cardInnerSpace),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Image.asset('assets/images/test.png'),
+                      Text(
+                        "معدات طبية",
+                        style: TextStyle(fontSize: 14, color: Colors.black),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                width: categoryWidth,
+                margin: EdgeInsets.only(right: 10),
+                height: categoryHeight,
+                decoration: BoxDecoration(
+                    color: Colors.brown.shade200,
+                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                child: Padding(
+                  padding: EdgeInsets.all(cardInnerSpace),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Image.asset('assets/images/test.png'),
+                      Text(
+                        "إرشادات عذائية",
+                        style: TextStyle(fontSize: 14, color: Colors.black),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                width: categoryWidth,
+                margin: EdgeInsets.only(right: 10),
+                height: categoryHeight,
+                decoration: BoxDecoration(
+                    color: Colors.orangeAccent.shade200,
+                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                child: Padding(
+                  padding: EdgeInsets.all(cardInnerSpace),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Image.asset('assets/images/test.png'),
+                      Text(
+                        "سيارة إسعاف",
+                        style: TextStyle(fontSize: 14, color: Colors.black),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                width: categoryWidth,
+                margin: EdgeInsets.only(right: 10),
+                height: categoryHeight,
+                decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                child: Padding(
+                  padding: EdgeInsets.all(cardInnerSpace),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Image.asset('assets/images/test.png'),
+                      Text(
+                        "خدمات أخرى",
+                        style: TextStyle(fontSize: 14, color: Colors.black),
+                        textAlign: TextAlign.center,
                       ),
                     ],
                   ),
@@ -318,6 +439,8 @@ class ServicesScroller extends StatelessWidget {
     final double categoryHeight = MediaQuery.of(context).size.height * 0.2;
     final double categoryWidth = 150.0;
     final double cardInnerSpace = 12.0;
+    final Color bookNowTicket = Palette.primaryColor;
+
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
       scrollDirection: Axis.horizontal,
@@ -336,7 +459,7 @@ class ServicesScroller extends StatelessWidget {
                   border: Border.all(color: Colors.grey),
                   color: Colors.white70,
                   borderRadius: BorderRadius.all(
-                    Radius.circular(20.0),
+                    Radius.circular(5.0),
                   ),
                 ),
                 child: Padding(
@@ -346,11 +469,11 @@ class ServicesScroller extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Image.asset(
-                        'assets/images/test.png',
+                        'assets/images/kidneys.png',
                         height: 60,
                       ),
                       Text(
-                        "فحص كورونا",
+                        "عيادة المسالك البولية",
                         style: TextStyle(fontSize: 14, color: Colors.black),
                       ),
                       Container(
@@ -359,11 +482,12 @@ class ServicesScroller extends StatelessWidget {
                         color: Colors.grey,
                       ),
                       Text(
-                        "BOOK NOW",
+                        "احجـز الآن",
                         style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.red.shade900,
-                            fontWeight: FontWeight.bold),
+                          fontSize: 14,
+                          color: bookNowTicket,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
@@ -377,7 +501,7 @@ class ServicesScroller extends StatelessWidget {
                   border: Border.all(color: Colors.grey),
                   color: Colors.white70,
                   borderRadius: BorderRadius.all(
-                    Radius.circular(20.0),
+                    Radius.circular(5.0),
                   ),
                 ),
                 child: Padding(
@@ -387,11 +511,11 @@ class ServicesScroller extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Image.asset(
-                        'assets/images/test.png',
+                        'assets/images/filler.png',
                         height: 60,
                       ),
                       Text(
-                        "خدمة التمريض السريع",
+                        "عيادة التجميل والترميم",
                         style: TextStyle(fontSize: 14, color: Colors.black),
                       ),
                       Container(
@@ -400,11 +524,12 @@ class ServicesScroller extends StatelessWidget {
                         color: Colors.grey,
                       ),
                       Text(
-                        "BOOK NOW",
+                        "احجـز الآن",
                         style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.red.shade900,
-                            fontWeight: FontWeight.bold),
+                          fontSize: 14,
+                          color: bookNowTicket,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
@@ -418,7 +543,7 @@ class ServicesScroller extends StatelessWidget {
                   border: Border.all(color: Colors.grey),
                   color: Colors.white70,
                   borderRadius: BorderRadius.all(
-                    Radius.circular(20.0),
+                    Radius.circular(5.0),
                   ),
                 ),
                 child: Padding(
@@ -428,11 +553,11 @@ class ServicesScroller extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Image.asset(
-                        'assets/images/test.png',
+                        'assets/images/surgery.png',
                         height: 60,
                       ),
                       Text(
-                        "طبيب عام",
+                        "عيادة الجراحة العامة",
                         style: TextStyle(fontSize: 14, color: Colors.black),
                       ),
                       Container(
@@ -441,11 +566,54 @@ class ServicesScroller extends StatelessWidget {
                         color: Colors.grey,
                       ),
                       Text(
-                        "BOOK NOW",
+                        "احجـز الآن",
                         style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.red.shade900,
-                            fontWeight: FontWeight.bold),
+                          fontSize: 14,
+                          color: bookNowTicket,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                width: categoryWidth,
+                margin: EdgeInsets.only(right: 10),
+                height: categoryHeight,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  color: Colors.white70,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(5.0),
+                  ),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(1),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Image.asset(
+                        'assets/images/eye.png',
+                        height: 60,
+                      ),
+                      Text(
+                        "طب وجراحة العيون",
+                        style: TextStyle(fontSize: 14, color: Colors.black),
+                      ),
+                      Container(
+                        height: 1,
+                        margin: EdgeInsets.fromLTRB(0, 10.0, 0, 10.0),
+                        color: Colors.grey,
+                      ),
+                      Text(
+                        "احجـز الآن",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: bookNowTicket,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
@@ -492,30 +660,36 @@ class OthersScroller extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.all(1),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
+                      Image.asset(
+                        'assets/images/vaccine.png',
+                        width: 60,
+                      ),
+                      SizedBox(width: 10),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            "سحب العينات مجانا",
+                            "فحص كورونا",
                             style: TextStyle(fontSize: 14, color: Colors.black),
                           ),
                           SizedBox(
                             height: 5,
                           ),
-                          Text(
-                            "اتطمن على صحة الحاج \nوالحاجة واطلب فحص...",
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.bold),
-                            textDirection: TextDirection.rtl,
+                          Container(
+                            padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
+                            color: Palette.primaryColor,
+                            child: Text(
+                              "30 دينار",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                              textDirection: TextDirection.rtl,
+                            ),
                           ),
                         ],
-                      ),
-                      Image.asset(
-                        'assets/images/test.png',
-                        width: 90,
                       ),
                     ],
                   ),
@@ -535,30 +709,36 @@ class OthersScroller extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.all(1),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
+                      Image.asset(
+                        'assets/images/hospital.png',
+                        width: 60,
+                      ),
+                      SizedBox(width: 10),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            "أسعار الخدمات",
+                            "زيارة طبيب للمنزل",
                             style: TextStyle(fontSize: 14, color: Colors.black),
                           ),
                           SizedBox(
                             height: 5,
                           ),
-                          Text(
-                            "زيارة طبيب طواريء \nمنزلي...",
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.bold),
-                            textDirection: TextDirection.rtl,
+                          Container(
+                            padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
+                            color: Palette.primaryColor,
+                            child: Text(
+                              "30 دينار",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                              textDirection: TextDirection.rtl,
+                            ),
                           ),
                         ],
-                      ),
-                      Image.asset(
-                        'assets/images/test.png',
-                        width: 90,
                       ),
                     ],
                   ),
@@ -566,6 +746,7 @@ class OthersScroller extends StatelessWidget {
               ),
               Container(
                 width: categoryWidth,
+                padding: EdgeInsets.all(10),
                 margin: EdgeInsets.only(right: 10),
                 height: categoryHeight,
                 decoration: BoxDecoration(
@@ -578,30 +759,86 @@ class OthersScroller extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.all(1),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
+                      Image.asset(
+                        'assets/images/delivery.png',
+                        width: 60,
+                      ),
+                      SizedBox(width: 10),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            "أسعار فحص كورونا",
+                            "زيارة تمريض منزلية\nدون إقامة",
                             style: TextStyle(fontSize: 14, color: Colors.black),
                           ),
                           SizedBox(
                             height: 5,
                           ),
-                          Text(
-                            "يعتمد سعر فحص كورونا\n على سرعة ودقة...",
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.bold),
-                            textDirection: TextDirection.rtl,
+                          Container(
+                            padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
+                            color: Palette.primaryColor,
+                            child: Text(
+                              "15 دينار",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                              textDirection: TextDirection.rtl,
+                            ),
                           ),
                         ],
                       ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                width: categoryWidth,
+                padding: EdgeInsets.all(10),
+                margin: EdgeInsets.only(right: 10),
+                height: categoryHeight,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  color: Colors.white70,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(20.0),
+                  ),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(1),
+                  child: Row(
+                    children: [
                       Image.asset(
-                        'assets/images/test.png',
-                        width: 90,
+                        'assets/images/massage.png',
+                        width: 60,
+                      ),
+                      SizedBox(width: 10),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            "معالج طبيعي",
+                            style: TextStyle(fontSize: 14, color: Colors.black),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Container(
+                            padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
+                            color: Palette.primaryColor,
+                            child: Text(
+                              "25 دينار",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                              textDirection: TextDirection.rtl,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),

@@ -59,10 +59,6 @@ class _Corona extends State<CoronaScreen> {
                 //   country: _country,
                 //   onChanged: (val) => setState(() => _country = val),
                 // ),
-                Image.asset(
-                  'assets/images/jo_flag.png',
-                  width: 40,
-                ),
                 Text(
                   'تطبيق دوائـي',
                   style: const TextStyle(
@@ -72,13 +68,17 @@ class _Corona extends State<CoronaScreen> {
                   ),
                   textDirection: TextDirection.rtl,
                 ),
+                Image.asset(
+                  'assets/images/jo_flag.png',
+                  width: 40,
+                ),
               ],
             ),
             SizedBox(
               height: screenHeight * 0.03,
             ),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
                   'تشعر أنك لست بخير؟',

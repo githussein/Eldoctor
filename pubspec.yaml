@@ -32,8 +32,12 @@ dependencies:
   #library to add bubble tab indicator to TabBar.
   bubble_tab_indicator: ^0.1.4
 
-  #library to draw charts
-  fl_chart: ^0.12.2
+  #library to use font awesome icons
+  font_awesome_flutter: ^9.0.0
+
+  #Firebase
+  firebase_core: ^1.2.0
+  firebase_auth: ^1.2.0
 
 dev_dependencies:
   flutter_test:

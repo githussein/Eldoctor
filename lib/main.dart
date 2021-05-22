@@ -17,7 +17,10 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: BottomNavScreen(),
+      home: Directionality(
+        textDirection: TextDirection.rtl,
+        child: BottomNavScreen(),
+      ),
     );
   }
 }
