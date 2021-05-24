@@ -34,11 +34,12 @@ class _SettingsState extends State<Settings> {
           elevation: 0,
           brightness: _getBrightness(),
           iconTheme: IconThemeData(color: _dark ? Colors.white : Colors.black),
-          backgroundColor: Colors.transparent,
+          backgroundColor: Palette.primaryColor,
           title: Text(
             'الإعدادات',
             style: TextStyle(
-              color: _dark ? Colors.white : Palette.primaryColor,
+              // color: _dark ? Colors.white : Palette.primaryColor,
+              color: Colors.white,
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),

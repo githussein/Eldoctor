@@ -60,7 +60,7 @@ class _Corona extends State<CoronaScreen> {
                 //   onChanged: (val) => setState(() => _country = val),
                 // ),
                 Text(
-                  'تطبيق دوائـي',
+                  'فيروس كورونا',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 24.0,

@@ -1,3 +1,4 @@
+import 'package:eldoctor/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:eldoctor/config/palette.dart';
 
@@ -16,7 +17,12 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
         IconButton(
           icon: const Icon(Icons.person),
           iconSize: 28.0,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => LoginScreen()),
+            );
+          },
         ),
       ],
     );

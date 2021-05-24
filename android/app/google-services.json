@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "30068172374",
+    "project_id": "eldoctor-5dd1f",
+    "storage_bucket": "eldoctor-5dd1f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30068172374:android:a10a0bd7d38524c346bdf7",
+        "android_client_info": {
+          "package_name": "com.eldoctor.eldoctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30068172374-tp51klchj2i5a95g02id832dum4oi5ha.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eldoctor.eldoctor",
+            "certificate_hash": "e77a6c7e9d496cd79db3ec3b837f256cc3e6e4fd"
+          }
+        },
+        {
+          "client_id": "30068172374-pa96pme95vjnnoahgnd5nrdgtqfph7bl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDl7T1BUixa-VPkPKUTGfjWeu3vM-DVVIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30068172374-pa96pme95vjnnoahgnd5nrdgtqfph7bl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
