@@ -5,6 +5,7 @@ import 'package:eldoctor/widgets/dart/country_dropdown.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:eldoctor/widgets/dart/custom_app_bar.dart';
+import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 
 class CoronaScreen extends StatefulWidget {
   @override
@@ -104,7 +105,9 @@ class _Corona extends State<CoronaScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     FlatButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          UrlLauncher.launch('tel:+962789241999');
+                        },
                         padding: const EdgeInsets.symmetric(
                             vertical: 10.0, horizontal: 20.0),
                         color: Colors.green,
@@ -119,7 +122,9 @@ class _Corona extends State<CoronaScreen> {
                           style: Styles.buttonTextStyle,
                         )),
                     FlatButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          UrlLauncher.launch('sms:+962789241999');
+                        },
                         padding: const EdgeInsets.symmetric(
                             vertical: 10.0, horizontal: 20.0),
                         color: Colors.blue,

@@ -3,6 +3,7 @@ import 'package:eldoctor/config/styles.dart';
 import 'package:eldoctor/widgets/dart/custom_app_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 
 class FeaturedScreen extends StatefulWidget {
   @override
@@ -83,50 +84,56 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
-                width: MediaQuery.of(context).size.width * 0.45,
-                padding: EdgeInsets.all(cardInnerPadding),
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade200,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      "assets/images/reminder.png",
-                      height: 80,
-                    ),
-                    SizedBox(height: 20),
-                    Text(
-                      'مواعيد الأدوية',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+              InkWell(
+                onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.45,
+                  padding: EdgeInsets.all(cardInnerPadding),
+                  decoration: BoxDecoration(
+                      color: Colors.grey.shade200,
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        "assets/images/reminder.png",
+                        height: 80,
                       ),
-                      textDirection: TextDirection.rtl,
-                    )
-                  ],
+                      SizedBox(height: 20),
+                      Text(
+                        'مواعيد الأدوية',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textDirection: TextDirection.rtl,
+                      )
+                    ],
+                  ),
                 ),
               ),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.45,
-                padding: EdgeInsets.all(cardInnerPadding),
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade200,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      "assets/images/hospital.png",
-                      height: 80,
-                    ),
-                    SizedBox(height: 20),
-                    Text(
-                      'المراكز الطبية',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+              InkWell(
+                onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.45,
+                  padding: EdgeInsets.all(cardInnerPadding),
+                  decoration: BoxDecoration(
+                      color: Colors.grey.shade200,
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        "assets/images/hospital.png",
+                        height: 80,
                       ),
-                      textDirection: TextDirection.rtl,
-                    )
-                  ],
+                      SizedBox(height: 20),
+                      Text(
+                        'المراكز الطبية',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textDirection: TextDirection.rtl,
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -135,50 +142,56 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
-                width: MediaQuery.of(context).size.width * 0.45,
-                padding: EdgeInsets.all(cardInnerPadding),
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade200,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      "assets/images/vaccine.png",
-                      height: 80,
-                    ),
-                    SizedBox(height: 20),
-                    Text(
-                      'تذكير بالمطاعيم',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+              InkWell(
+                onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.45,
+                  padding: EdgeInsets.all(cardInnerPadding),
+                  decoration: BoxDecoration(
+                      color: Colors.grey.shade200,
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        "assets/images/vaccine.png",
+                        height: 80,
                       ),
-                      textDirection: TextDirection.rtl,
-                    )
-                  ],
+                      SizedBox(height: 20),
+                      Text(
+                        'تذكير بالمطاعيم',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textDirection: TextDirection.rtl,
+                      )
+                    ],
+                  ),
                 ),
               ),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.45,
-                padding: EdgeInsets.all(cardInnerPadding),
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade200,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      "assets/images/delivery.png",
-                      height: 80,
-                    ),
-                    SizedBox(height: 20),
-                    Text(
-                      'توصيل الأدوية',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+              InkWell(
+                onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.45,
+                  padding: EdgeInsets.all(cardInnerPadding),
+                  decoration: BoxDecoration(
+                      color: Colors.grey.shade200,
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        "assets/images/delivery.png",
+                        height: 80,
                       ),
-                      textDirection: TextDirection.rtl,
-                    )
-                  ],
+                      SizedBox(height: 20),
+                      Text(
+                        'توصيل الأدوية',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textDirection: TextDirection.rtl,
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],

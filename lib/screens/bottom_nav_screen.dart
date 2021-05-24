@@ -13,7 +13,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     HomeScreen(),
     FeaturedScreen(),
     CoronaScreen(),
-    Settings(),
+    SettingsScreen(),
     Scaffold(),
   ];
   int _currentIndex = 0;

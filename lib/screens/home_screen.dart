@@ -1,7 +1,11 @@
 import 'package:eldoctor/config/palette.dart';
+import 'package:eldoctor/screens/corona.dart';
+import 'package:eldoctor/screens/nursing_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:eldoctor/widgets/dart/custom_app_bar.dart';
+import 'package:eldoctor/screens/doctors_screen.dart';
+import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -176,249 +180,297 @@ class CategoriesScroller extends StatelessWidget {
           alignment: Alignment.topCenter,
           child: Row(
             children: <Widget>[
-              Container(
-                width: categoryWidth,
-                margin: EdgeInsets.only(right: 10),
-                height: categoryHeight,
-                decoration: BoxDecoration(
-                    color: Colors.blue.shade200,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Padding(
-                  padding: EdgeInsets.all(cardInnerSpace),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Image.asset('assets/images/test.png'),
-                      Text(
-                        "أطباء",
-                        style: TextStyle(fontSize: 14, color: Colors.black),
-                      ),
-                    ],
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DoctorsScreen()),
+                  );
+                },
+                child: Container(
+                  width: categoryWidth,
+                  margin: EdgeInsets.only(right: 10),
+                  height: categoryHeight,
+                  decoration: BoxDecoration(
+                      color: Colors.blue.shade200,
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: EdgeInsets.all(cardInnerSpace),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Image.asset('assets/images/doctor.png'),
+                        Text(
+                          "أطباء",
+                          style: TextStyle(fontSize: 14, color: Colors.black),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Container(
-                width: categoryWidth,
-                margin: EdgeInsets.only(right: 10),
-                height: categoryHeight,
-                decoration: BoxDecoration(
-                    color: Colors.green.shade200,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Padding(
-                  padding: EdgeInsets.all(cardInnerSpace),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Image.asset('assets/images/test.png'),
-                      Text(
-                        "تمريض",
-                        style: TextStyle(fontSize: 14, color: Colors.black),
-                      ),
-                    ],
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => NursingScreen()),
+                  );
+                },
+                child: Container(
+                  width: categoryWidth,
+                  margin: EdgeInsets.only(right: 10),
+                  height: categoryHeight,
+                  decoration: BoxDecoration(
+                      color: Colors.green.shade200,
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: EdgeInsets.all(cardInnerSpace),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Image.asset('assets/images/nurse.png'),
+                        Text(
+                          "تمريض",
+                          style: TextStyle(fontSize: 14, color: Colors.black),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Container(
-                width: categoryWidth,
-                margin: EdgeInsets.only(right: 10),
-                height: categoryHeight,
-                decoration: BoxDecoration(
-                    color: Colors.purple.shade200,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Padding(
-                  padding: EdgeInsets.all(cardInnerSpace),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Image.asset('assets/images/test.png'),
-                      Text(
-                        "علاج طبيعي",
-                        style: TextStyle(fontSize: 14, color: Colors.black),
-                      ),
-                    ],
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CoronaScreen()),
+                  );
+                },
+                child: Container(
+                  width: categoryWidth,
+                  margin: EdgeInsets.only(right: 10),
+                  height: categoryHeight,
+                  decoration: BoxDecoration(
+                      color: Colors.purple.shade200,
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: EdgeInsets.all(cardInnerSpace),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Image.asset('assets/images/vaccine.png'),
+                        Text(
+                          "فحص كورونا",
+                          style: TextStyle(fontSize: 12, color: Colors.black),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Container(
-                width: categoryWidth,
-                margin: EdgeInsets.only(right: 10),
-                height: categoryHeight,
-                decoration: BoxDecoration(
-                    color: Colors.amber.shade200,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Padding(
-                  padding: EdgeInsets.all(cardInnerSpace),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Image.asset('assets/images/test.png'),
-                      Text(
-                        "أسنان",
-                        style: TextStyle(fontSize: 14, color: Colors.black),
-                      ),
-                    ],
+              InkWell(
+                onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                child: Container(
+                  width: categoryWidth,
+                  margin: EdgeInsets.only(right: 10),
+                  height: categoryHeight,
+                  decoration: BoxDecoration(
+                      color: Colors.amber.shade200,
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: EdgeInsets.all(cardInnerSpace),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Image.asset('assets/images/dentist.png'),
+                        Text(
+                          "أسنان",
+                          style: TextStyle(fontSize: 14, color: Colors.black),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Container(
-                width: categoryWidth,
-                margin: EdgeInsets.only(right: 10),
-                height: categoryHeight,
-                decoration: BoxDecoration(
-                    color: Colors.teal.shade200,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Padding(
-                  padding: EdgeInsets.all(cardInnerSpace),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Image.asset('assets/images/test.png'),
-                      Text(
-                        "فحص كورونا",
-                        style: TextStyle(fontSize: 14, color: Colors.black),
-                      ),
-                    ],
+              InkWell(
+                onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                child: Container(
+                  width: categoryWidth,
+                  margin: EdgeInsets.only(right: 10),
+                  height: categoryHeight,
+                  decoration: BoxDecoration(
+                      color: Colors.teal.shade200,
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: EdgeInsets.all(cardInnerSpace),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Image.asset('assets/images/massage.png'),
+                        Text(
+                          "علاج طبيعي",
+                          style: TextStyle(fontSize: 12, color: Colors.black),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Container(
-                width: categoryWidth,
-                margin: EdgeInsets.only(right: 10),
-                height: categoryHeight,
-                decoration: BoxDecoration(
-                    color: Colors.red.shade200,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Padding(
-                  padding: EdgeInsets.all(cardInnerSpace),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Image.asset('assets/images/test.png'),
-                      Text(
-                        "المختبر",
-                        style: TextStyle(fontSize: 14, color: Colors.black),
-                      ),
-                    ],
+              InkWell(
+                onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                child: Container(
+                  width: categoryWidth,
+                  margin: EdgeInsets.only(right: 10),
+                  height: categoryHeight,
+                  decoration: BoxDecoration(
+                      color: Colors.red.shade200,
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: EdgeInsets.all(cardInnerSpace),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Image.asset('assets/images/test.png'),
+                        Text(
+                          "المختبر",
+                          style: TextStyle(fontSize: 14, color: Colors.black),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Container(
-                width: categoryWidth,
-                margin: EdgeInsets.only(right: 10),
-                height: categoryHeight,
-                decoration: BoxDecoration(
-                    color: Colors.lightGreenAccent.shade200,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Padding(
-                  padding: EdgeInsets.all(cardInnerSpace),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Image.asset('assets/images/test.png'),
-                      Text(
-                        "أشعة",
-                        style: TextStyle(fontSize: 14, color: Colors.black),
-                      ),
-                    ],
+              InkWell(
+                onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                child: Container(
+                  width: categoryWidth,
+                  margin: EdgeInsets.only(right: 10),
+                  height: categoryHeight,
+                  decoration: BoxDecoration(
+                      color: Colors.lightGreenAccent.shade200,
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: EdgeInsets.all(cardInnerSpace),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Image.asset('assets/images/scan.png'),
+                        Text(
+                          "أشعة",
+                          style: TextStyle(fontSize: 14, color: Colors.black),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Container(
-                width: categoryWidth,
-                margin: EdgeInsets.only(right: 10),
-                height: categoryHeight,
-                decoration: BoxDecoration(
-                    color: Colors.pink.shade200,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Padding(
-                  padding: EdgeInsets.all(cardInnerSpace),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Image.asset('assets/images/test.png'),
-                      Text(
-                        "معدات طبية",
-                        style: TextStyle(fontSize: 14, color: Colors.black),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
+              InkWell(
+                onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                child: Container(
+                  width: categoryWidth,
+                  margin: EdgeInsets.only(right: 10),
+                  height: categoryHeight,
+                  decoration: BoxDecoration(
+                      color: Colors.pink.shade200,
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: EdgeInsets.all(cardInnerSpace),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Image.asset('assets/images/leg.png'),
+                        Text(
+                          "معدات طبية",
+                          style: TextStyle(fontSize: 14, color: Colors.black),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Container(
-                width: categoryWidth,
-                margin: EdgeInsets.only(right: 10),
-                height: categoryHeight,
-                decoration: BoxDecoration(
-                    color: Colors.brown.shade200,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Padding(
-                  padding: EdgeInsets.all(cardInnerSpace),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Image.asset('assets/images/test.png'),
-                      Text(
-                        "إرشادات عذائية",
-                        style: TextStyle(fontSize: 14, color: Colors.black),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
+              InkWell(
+                onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                child: Container(
+                  width: categoryWidth,
+                  margin: EdgeInsets.only(right: 10),
+                  height: categoryHeight,
+                  decoration: BoxDecoration(
+                      color: Colors.brown.shade200,
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: EdgeInsets.all(cardInnerSpace),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Image.asset('assets/images/apple.png'),
+                        Text(
+                          "إرشادات عذائية",
+                          style: TextStyle(fontSize: 14, color: Colors.black),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Container(
-                width: categoryWidth,
-                margin: EdgeInsets.only(right: 10),
-                height: categoryHeight,
-                decoration: BoxDecoration(
-                    color: Colors.orangeAccent.shade200,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Padding(
-                  padding: EdgeInsets.all(cardInnerSpace),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Image.asset('assets/images/test.png'),
-                      Text(
-                        "سيارة إسعاف",
-                        style: TextStyle(fontSize: 14, color: Colors.black),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
+              InkWell(
+                onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                child: Container(
+                  width: categoryWidth,
+                  margin: EdgeInsets.only(right: 10),
+                  height: categoryHeight,
+                  decoration: BoxDecoration(
+                      color: Colors.orangeAccent.shade200,
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: EdgeInsets.all(cardInnerSpace),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Image.asset('assets/images/ambulance.png'),
+                        Text(
+                          "سيارة إسعاف",
+                          style: TextStyle(fontSize: 14, color: Colors.black),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Container(
-                width: categoryWidth,
-                margin: EdgeInsets.only(right: 10),
-                height: categoryHeight,
-                decoration: BoxDecoration(
-                    color: Colors.grey.shade200,
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Padding(
-                  padding: EdgeInsets.all(cardInnerSpace),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Image.asset('assets/images/test.png'),
-                      Text(
-                        "خدمات أخرى",
-                        style: TextStyle(fontSize: 14, color: Colors.black),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
+              InkWell(
+                onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                child: Container(
+                  width: categoryWidth,
+                  margin: EdgeInsets.only(right: 10),
+                  height: categoryHeight,
+                  decoration: BoxDecoration(
+                      color: Colors.grey.shade200,
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Padding(
+                    padding: EdgeInsets.all(cardInnerSpace),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Image.asset('assets/images/more.png'),
+                        Text(
+                          "خدمات أخرى",
+                          style: TextStyle(fontSize: 14, color: Colors.black),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
