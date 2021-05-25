@@ -1,5 +1,6 @@
 import 'package:eldoctor/config/palette.dart';
 import 'package:eldoctor/config/styles.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -12,10 +13,18 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   bool _dark;
 
+  FirebaseAuth _auth;
+  User _user;
+  bool isLoading = true;
+
   @override
   void initState() {
     super.initState();
     _dark = false;
+
+    _auth = FirebaseAuth.instance;
+    _user = _auth.currentUser;
+    isLoading = false;
   }
 
   Brightness _getBrightness() {
@@ -198,8 +207,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             color: Palette.primaryColor,
                           ),
                           title: Text("تسجيل الخروج"),
-                          onTap: () {
-                            //open change password
+                          onTap: () async {
+                            /// Method to Logout the FirebaseUser
+                            try {
+                              await FirebaseAuth.instance.signOut();
+                              _user = null;
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                content: Text('تم تسجيل الخروج بنجاح'),
+                              ));
+                            } catch (e) {
+                              print(e.toString());
+                            }
                           },
                         ),
                       ],

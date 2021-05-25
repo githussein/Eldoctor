@@ -75,9 +75,12 @@ class _LoginScreenState extends State<LoginScreen> {
         TextField(
           decoration: InputDecoration(
             hintText: '',
-            prefix: Padding(
+            suffix: Padding(
               padding: EdgeInsets.all(4),
-              child: Text('$countryCode'),
+              child: Text(
+                '$countryCode',
+                textDirection: TextDirection.ltr,
+              ),
             ),
           ),
           maxLength: 9,
@@ -93,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
               showLoading = true;
 
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text('Verify $countryCode-${phoneController.text}'),
+                content: Text('يتم الأن إرسال رمز التحقق'),
               ));
             });
 
@@ -153,6 +156,7 @@ class _LoginScreenState extends State<LoginScreen> {
           controller: otpController,
           decoration: InputDecoration(
             hintText: "_ _ _ _ _ _",
+            hintTextDirection: TextDirection.ltr,
           ),
         ),
         SizedBox(

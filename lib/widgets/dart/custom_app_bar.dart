@@ -1,4 +1,3 @@
-import 'package:eldoctor/screens/login_screen.dart';
 import 'package:eldoctor/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:eldoctor/config/palette.dart';
