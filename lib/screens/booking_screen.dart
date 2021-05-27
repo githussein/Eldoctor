@@ -43,11 +43,11 @@ class BookingScreenState extends State<BookingScreen> {
           return 'العنوان مطلوب';
         }
 
-        if (!RegExp(
-                r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
-            .hasMatch(value)) {
-          return 'Please enter a valid email Address';
-        }
+        // if (!RegExp(
+        //         r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+        //     .hasMatch(value)) {
+        //   return 'Please enter a valid email Address';
+        // }
 
         return null;
       },
@@ -161,6 +161,11 @@ class BookingScreenState extends State<BookingScreen> {
                       if (!_formKey.currentState.validate()) {
                         return;
                       }
+
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text(
+                            'تم تأكيد الحجز وسيتم التواصل معك في أقرب وقت ممكن'),
+                      ));
 
                       _formKey.currentState.save();
 

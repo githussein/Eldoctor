@@ -176,6 +176,90 @@ class _NursingScreenState extends State<NursingScreen> {
                       color: Palette.primaryColor,
                     ),
                     Text(
+                      "تركيب قسطرة بولية",
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Image.asset(
+                      'assets/images/nurse.png',
+                      width: 60,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 10),
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                color: Colors.white70,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(20.0),
+                ),
+              ),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookingScreen(
+                            // requiredService: 'd1',
+                            ),
+                      ));
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Icon(
+                      Icons.arrow_back,
+                      color: Palette.primaryColor,
+                    ),
+                    Text(
+                      "إعطاء أدوية وريدية",
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Image.asset(
+                      'assets/images/nurse.png',
+                      width: 60,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 10),
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                color: Colors.white70,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(20.0),
+                ),
+              ),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookingScreen(
+                            // requiredService: 'd1',
+                            ),
+                      ));
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Icon(
+                      Icons.arrow_back,
+                      color: Palette.primaryColor,
+                    ),
+                    Text(
                       "خدمة المناوبة بالمنزل",
                       style: TextStyle(
                           fontSize: 16,

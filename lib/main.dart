@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
       title: 'Eldoctor',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.white,
+        primarySwatch: Colors.blueGrey,
+        scaffoldBackgroundColor: Color(0xFFF5F5F5),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Directionality(

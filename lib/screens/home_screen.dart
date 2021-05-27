@@ -285,33 +285,6 @@ class CategoriesScroller extends StatelessWidget {
                 margin: EdgeInsets.only(right: 10),
                 height: categoryHeight,
                 decoration: BoxDecoration(
-                  color: Colors.amber.shade200,
-                  shape: BoxShape.circle,
-                ),
-                child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962789241999'),
-                  child: Padding(
-                    padding: EdgeInsets.all(cardInnerSpace),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Image.asset('assets/images/dentist.png'),
-                        Text(
-                          "أسنان",
-                          style: TextStyle(fontSize: 14, color: Colors.black),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: categoryWidth,
-                padding: EdgeInsets.all(15),
-                margin: EdgeInsets.only(right: 10),
-                height: categoryHeight,
-                decoration: BoxDecoration(
                   color: Colors.teal.shade200,
                   shape: BoxShape.circle,
                 ),
@@ -366,7 +339,7 @@ class CategoriesScroller extends StatelessWidget {
                 margin: EdgeInsets.only(right: 10),
                 height: categoryHeight,
                 decoration: BoxDecoration(
-                  color: Colors.lightGreenAccent.shade200,
+                  color: Colors.amber.shade200,
                   shape: BoxShape.circle,
                 ),
                 child: InkWell(
@@ -436,34 +409,6 @@ class CategoriesScroller extends StatelessWidget {
                         Text(
                           "تغذية",
                           style: TextStyle(fontSize: 14, color: Colors.black),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                width: categoryWidth,
-                padding: EdgeInsets.all(15),
-                margin: EdgeInsets.only(right: 10),
-                height: categoryHeight,
-                decoration: BoxDecoration(
-                  color: Colors.orangeAccent.shade200,
-                  shape: BoxShape.circle,
-                ),
-                child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962789241999'),
-                  child: Padding(
-                    padding: EdgeInsets.all(cardInnerSpace),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Image.asset('assets/images/ambulance.png'),
-                        Text(
-                          "سيارة إسعاف",
-                          style: TextStyle(fontSize: 12, color: Colors.black),
                           textAlign: TextAlign.center,
                         ),
                       ],
