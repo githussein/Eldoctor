@@ -1,9 +1,8 @@
 import 'package:eldoctor/config/palette.dart';
-import 'package:eldoctor/config/styles.dart';
+import 'package:eldoctor/screens/screens.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override
@@ -53,6 +52,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
               fontWeight: FontWeight.bold,
             ),
           ),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => BottomNavScreen()),
+              );
+            },
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+            ),
+          ),
           actions: <Widget>[
             // IconButton(
             //   icon: Icon(FontAwesomeIcons.moon),
@@ -79,7 +90,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     color: Palette.primaryColor,
                     child: ListTile(
                       onTap: () {
-                        //open edit profile
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ProfileScreen()),
+                        );
                       },
                       title: Text(
                         "زكوان نصير",
@@ -114,7 +129,27 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           title: Text("حول التطبيق"),
                           trailing: Icon(Icons.keyboard_arrow_left),
                           onTap: () {
-                            //open change password
+                            showDialog<String>(
+                              context: context,
+                              builder: (BuildContext context) => AlertDialog(
+                                title: const Text(
+                                  'حول التطبيق',
+                                  textDirection: TextDirection.rtl,
+                                ),
+                                content: const Text(
+                                  'هي منصة إلكترونية لتقديم الخدمات الصحية من مختلف التخصصات حيث تصلك بكادرٍ مميزٍ من الأطباء والممرضين وأخصائيي العلاج الطبيعي على مدار الساعة لتلبية احتياجاتِكَ الطّبية وتزويدِكَ بأفضلِ رعايةٍ أينما كنت.',
+                                  textDirection: TextDirection.rtl,
+                                  textAlign: TextAlign.center,
+                                ),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(context, 'OK'),
+                                    child: const Text('إغلاق'),
+                                  ),
+                                ],
+                              ),
+                            );
                           },
                         ),
                         _buildDivider(),
@@ -126,7 +161,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           title: Text("سياسة الخصوصية"),
                           trailing: Icon(Icons.keyboard_arrow_left),
                           onTap: () {
-                            //open change language
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        PrivacyPolicyScreen()));
                           },
                         ),
                         _buildDivider(),

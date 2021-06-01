@@ -1,7 +1,5 @@
 import 'package:eldoctor/config/palette.dart';
-import 'package:eldoctor/screens/booking_screen.dart';
-import 'package:eldoctor/screens/bottom_nav_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:eldoctor/screens/screens.dart';
 import "package:flutter/material.dart";
 
 class DoctorsScreen extends StatefulWidget {

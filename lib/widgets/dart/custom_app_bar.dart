@@ -1,7 +1,6 @@
 import 'package:eldoctor/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:eldoctor/config/palette.dart';
-import 'package:eldoctor/screens/settings_screen.dart';
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
@@ -15,7 +14,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => SettingsScreen()),
+            MaterialPageRoute(builder: (context) => ProfileScreen()),
           );
         },
       ),
@@ -23,7 +22,12 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
         IconButton(
           icon: const Icon(Icons.notifications),
           iconSize: 28.0,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => NotificationsScreen()),
+            );
+          },
         ),
       ],
     );

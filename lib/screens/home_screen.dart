@@ -1,10 +1,8 @@
 import 'package:eldoctor/config/palette.dart';
-import 'package:eldoctor/screens/corona.dart';
-import 'package:eldoctor/screens/nursing_screen.dart';
+import 'package:eldoctor/screens/screens.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:eldoctor/widgets/dart/custom_app_bar.dart';
-import 'package:eldoctor/screens/doctors_screen.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 
 import 'booking_screen.dart';

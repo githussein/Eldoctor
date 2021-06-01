@@ -37,10 +37,10 @@ class _Corona extends State<CoronaScreen> {
         padding: const EdgeInsets.all(20.0),
         decoration: BoxDecoration(
           color: Palette.primaryColor,
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(40.0),
-            bottomLeft: Radius.circular(40.0),
-          ),
+          // borderRadius: BorderRadius.only(
+          //   bottomRight: Radius.circular(40.0),
+          //   bottomLeft: Radius.circular(40.0),
+          // ),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,7 +110,7 @@ class _Corona extends State<CoronaScreen> {
                         },
                         padding: const EdgeInsets.symmetric(
                             vertical: 10.0, horizontal: 20.0),
-                        color: Colors.green,
+                        color: Colors.green.shade800,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0)),
                         icon: const Icon(
@@ -127,7 +127,7 @@ class _Corona extends State<CoronaScreen> {
                         },
                         padding: const EdgeInsets.symmetric(
                             vertical: 10.0, horizontal: 20.0),
-                        color: Colors.blue,
+                        color: Colors.blue.shade700,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0)),
                         icon: const Icon(
@@ -139,7 +139,10 @@ class _Corona extends State<CoronaScreen> {
                           style: Styles.buttonTextStyle,
                         )),
                   ],
-                )
+                ),
+                SizedBox(
+                  height: screenHeight * 0.03,
+                ),
               ],
             ),
           ],
@@ -159,6 +162,12 @@ class _Corona extends State<CoronaScreen> {
               'نصائح هامة',
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
               textAlign: TextAlign.right,
+            ),
+            const SizedBox(height: 10.0),
+            Container(
+              height: 0.1,
+              width: 100,
+              color: Palette.secondaryColor,
             ),
             const SizedBox(height: 20.0),
             Row(
@@ -196,7 +205,7 @@ class _Corona extends State<CoronaScreen> {
     return SliverToBoxAdapter(
       child: Container(
         margin: const EdgeInsets.symmetric(
-          vertical: 10.0,
+          vertical: 20.0,
           horizontal: 20.0,
         ),
         padding: EdgeInsets.all(10.0),
