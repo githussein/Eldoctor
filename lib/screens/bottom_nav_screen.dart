@@ -1,5 +1,6 @@
 import 'package:eldoctor/config/palette.dart';
 import 'package:eldoctor/screens/corona_screen.dart';
+import 'package:eldoctor/screens/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:eldoctor/screens/screens.dart';
 
@@ -14,7 +15,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     FeaturedScreen(),
     CoronaScreen(),
     SettingsScreen(),
-    Scaffold(),
+    DashboardScreen(),
   ];
   int _currentIndex = 0;
 
@@ -38,7 +39,8 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
             Icons.home,
             Icons.event_note,
             Icons.medical_services_outlined,
-            Icons.menu
+            Icons.menu,
+            Icons.dashboard
           ]
               .asMap()
               .map((key, value) => MapEntry(
