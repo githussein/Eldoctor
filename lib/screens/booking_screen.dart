@@ -1,4 +1,8 @@
 import 'package:eldoctor/config/palette.dart';
+import 'package:eldoctor/services/database.dart';
+import 'package:eldoctor/utils/user_preferences.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BookingScreen extends StatefulWidget {
@@ -10,17 +14,17 @@ class BookingScreen extends StatefulWidget {
 
 class BookingScreenState extends State<BookingScreen> {
   String _name;
-  String _email;
+  String _address;
   String _password;
   String _url;
-  String _phoneNumber;
+  String _phone;
   String _calories;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   Widget _buildName() {
     return TextFormField(
-      decoration: InputDecoration(labelText: 'الاسم'),
+      decoration: InputDecoration(labelText: 'اسم الحالة'),
       // maxLength: 10,
       validator: (String value) {
         if (value.isEmpty) {
@@ -35,24 +39,20 @@ class BookingScreenState extends State<BookingScreen> {
     );
   }
 
-  Widget _buildEmail() {
+  //Form address field
+  Widget _buildAddress() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'العنوان'),
+      // maxLength: 10,
       validator: (String value) {
         if (value.isEmpty) {
           return 'العنوان مطلوب';
         }
 
-        // if (!RegExp(
-        //         r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
-        //     .hasMatch(value)) {
-        //   return 'Please enter a valid email Address';
-        // }
-
         return null;
       },
       onSaved: (String value) {
-        _email = value;
+        _address = value;
       },
     );
   }
@@ -93,11 +93,11 @@ class BookingScreenState extends State<BookingScreen> {
 
   Widget _buildPhoneNumber() {
     return TextFormField(
-      decoration: InputDecoration(labelText: 'وصف الحالة'),
+      decoration: InputDecoration(labelText: 'رقم التليفون'),
       keyboardType: TextInputType.phone,
       validator: (String value) {
         if (value.isEmpty) {
-          return 'برجاء كتابة وصف الحالة';
+          return 'برجاء كتابة رقم التليفون للتواصل';
         }
 
         return null;
@@ -111,7 +111,6 @@ class BookingScreenState extends State<BookingScreen> {
   Widget _buildCalories() {
     return TextFormField(
       decoration: InputDecoration(labelText: 'أدوية تتناولها حاليا'),
-      keyboardType: TextInputType.number,
       validator: (String value) {
         int calories = int.tryParse(value);
 
@@ -145,7 +144,7 @@ class BookingScreenState extends State<BookingScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   _buildName(),
-                  _buildEmail(),
+                  _buildAddress(),
                   // _buildPassword(),
                   _builURL(),
                   _buildPhoneNumber(),
@@ -155,11 +154,25 @@ class BookingScreenState extends State<BookingScreen> {
                     color: Palette.primaryColor,
                     child: Text(
                       'تأكيد الحجز',
-                      style: TextStyle(color: Colors.white, fontSize: 16),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
                     ),
-                    onPressed: () {
-                      if (!_formKey.currentState.validate()) {
-                        return;
+                    onPressed: () async {
+                      if (_formKey.currentState.validate()) {
+                        _formKey.currentState.save();
+
+                        var firebaseUser = FirebaseAuth.instance.currentUser;
+
+                        print('BOOKING:::uid::: ${firebaseUser.uid}');
+
+                        await DatabaseService(uid: firebaseUser.uid)
+                            .updateBookingData(
+                          _name,
+                          _address,
+                          _phone,
+                        );
                       }
 
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -170,8 +183,8 @@ class BookingScreenState extends State<BookingScreen> {
                       _formKey.currentState.save();
 
                       print(_name);
-                      print(_email);
-                      print(_phoneNumber);
+                      print(_address);
+                      print(_phone);
                       print(_url);
                       print(_password);
                       print(_calories);
@@ -185,6 +198,15 @@ class BookingScreenState extends State<BookingScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  void registerBooking() async {
+    print('BOOOOOOKING:::::::::uid::::: ${UserPreferences.uid}');
+    await DatabaseService(uid: UserPreferences.uid).updateBookingData(
+      _name,
+      _address,
+      _phone,
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:eldoctor/config/palette.dart';
+import 'package:eldoctor/model/user.dart';
 import 'package:eldoctor/screens/edit_profile_screen.dart';
 import 'package:eldoctor/services/database.dart';
+import 'package:eldoctor/utils/user_preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
 
@@ -15,6 +17,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  //store the uid to share it later
+  String myUserID = null;
+
   MobileVerificationState currentState =
       MobileVerificationState.SHOW_MOBILE_FORM_STATE;
 
@@ -42,15 +47,25 @@ class _LoginScreenState extends State<LoginScreen> {
         showLoading = false;
       });
 
+      //For debugging to see if a user was actually created
+      print('USER DATA: ${authCredential.user}');
+
       //SUCCESSFUL LOG IN
       if (authCredential?.user != null) {
-        //Create a new document for that user with its uid
-        print('UUUUUUUUUUUSER::::::::::::: ${authCredential.user}');
-        await DatabaseService(uid: authCredential.user.uid).updateUserData(
-            'Mohamed Samy', 'muhamed.samy1@gmail.com', '+201005579290');
+        //Save the user id
+        // MyUser myUser = new MyUser();
+        myUserID = authCredential.user.uid;
+        UserPreferences.uid = authCredential.user.uid;
 
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => EditProfileScreen()));
+        //Create a new document for that user with its uid
+        await DatabaseService(uid: authCredential.user.uid).updateUserData(
+            'Muhamed Samy', 'muhamed.samy1@gmail.com', '+201005579290');
+
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    EditProfileScreen(authCredential.user.uid)));
       }
     } on FirebaseAuthException catch (e) {
       setState(() {
@@ -82,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
         TextField(
           decoration: InputDecoration(
             hintText: '',
-            suffix: Padding(
+            prefix: Padding(
               padding: EdgeInsets.all(4),
               child: Text(
                 '$countryCode',
@@ -161,9 +176,10 @@ class _LoginScreenState extends State<LoginScreen> {
           height: 40,
         ),
         TextField(
+          keyboardType: TextInputType.number,
           controller: otpController,
           decoration: InputDecoration(
-            hintText: "_ _ _ _ _ _",
+            hintText: "_   _   _   _   _   _",
             hintTextDirection: TextDirection.ltr,
           ),
         ),

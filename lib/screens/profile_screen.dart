@@ -52,7 +52,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => EditProfileScreen()),
+                        //TODO pass the user ID
+                        builder: (context) => EditProfileScreen('')),
                   );
                 },
               )
@@ -68,7 +69,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 onClicked: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                        builder: (context) => EditProfileScreen()),
+                        //TODO pass the user ID
+                        builder: (context) => EditProfileScreen('')),
                   );
                 },
               ),
@@ -87,7 +89,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  Widget buildName(User user) => Column(
+  Widget buildName(MyUser user) => Column(
         children: [
           Text(
             user.name,
@@ -108,7 +110,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         },
       );
 
-  Widget buildAbout(User user) => Container(
+  Widget buildAbout(MyUser user) => Container(
         padding: EdgeInsets.symmetric(horizontal: 48),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,7 +121,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             const SizedBox(height: 16),
             Text(
-              user.about,
+              user.phone,
               style: TextStyle(fontSize: 16, height: 1.4),
             ),
             const SizedBox(height: 16),
