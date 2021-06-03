@@ -2,10 +2,10 @@ import 'package:eldoctor/config/palette.dart';
 import 'package:eldoctor/model/user.dart';
 import 'package:eldoctor/screens/screens.dart';
 import 'package:eldoctor/utils/user_preferences.dart';
-import 'package:eldoctor/widgets/dart/custom_app_bar.dart';
 import 'package:eldoctor/widgets/dart/profile_widget.dart';
 import 'package:eldoctor/widgets/dart/textfield_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class EditProfileScreen extends StatefulWidget {
   @override
@@ -49,6 +49,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 IconButton(
                   icon: Icon(Icons.save),
                   onPressed: () {
+                    //Create a new user in Firestore database
+
                     Navigator.push(
                       context,
                       MaterialPageRoute(

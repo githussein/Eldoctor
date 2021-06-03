@@ -74,10 +74,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               const SizedBox(height: 24),
               buildName(user),
-              const SizedBox(height: 24),
+              // const SizedBox(height: 24),
               // Center(child: buildUpgradeButton()),
               // const SizedBox(height: 24),
-              //NumbersWidget(),
+              // NumbersWidget(),
               const SizedBox(height: 48),
               buildAbout(user),
             ],
@@ -103,7 +103,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Widget buildUpgradeButton() => ButtonWidget(
         text: 'Upgrade To PRO',
-        onClicked: () {},
+        onClicked: () {
+          // Firebase
+        },
       );
 
   Widget buildAbout(User user) => Container(

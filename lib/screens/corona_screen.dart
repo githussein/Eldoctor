@@ -1,7 +1,6 @@
 import 'package:eldoctor/config/palette.dart';
 import 'package:eldoctor/config/styles.dart';
 import 'package:eldoctor/data/data.dart';
-import 'package:eldoctor/widgets/dart/country_dropdown.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:eldoctor/widgets/dart/custom_app_bar.dart';

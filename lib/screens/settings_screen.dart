@@ -23,6 +23,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
     _auth = FirebaseAuth.instance;
     _user = _auth.currentUser;
+    print('USERRRRRRRRRRRRRRRRRRRRRRRRRRRR: $_user');
     isLoading = false;
   }
 
@@ -255,6 +256,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   .showSnackBar(SnackBar(
                                 content: Text('تم تسجيل الخروج بنجاح'),
                               ));
+
+                              //Navigate to login screen
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginScreen()));
                             } catch (e) {
                               print(e.toString());
                             }

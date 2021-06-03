@@ -1,6 +1,5 @@
 import 'package:eldoctor/config/palette.dart';
 import 'package:flutter/material.dart';
-import 'package:eldoctor/screens/screens.dart';
 
 class ProfileWidget extends StatelessWidget {
   final String imagePath;
@@ -23,11 +22,11 @@ class ProfileWidget extends StatelessWidget {
       child: Stack(
         children: [
           buildImage(),
-          Positioned(
-            bottom: 0,
-            right: 4,
-            child: buildEditIcon(color),
-          ),
+          // Positioned(
+          //   bottom: 0,
+          //   right: 4,
+          //   child: buildEditIcon(color),
+          // ),
         ],
       ),
     );

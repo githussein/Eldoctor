@@ -1,5 +1,6 @@
 import 'package:eldoctor/config/palette.dart';
-import 'package:eldoctor/screens/bottom_nav_screen.dart';
+import 'package:eldoctor/screens/edit_profile_screen.dart';
+import 'package:eldoctor/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
 
@@ -17,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
   MobileVerificationState currentState =
       MobileVerificationState.SHOW_MOBILE_FORM_STATE;
 
-  String countryCode = '+962';
+  String countryCode = '+49';
   final phoneController = TextEditingController();
   final otpController = TextEditingController();
 
@@ -41,9 +42,15 @@ class _LoginScreenState extends State<LoginScreen> {
         showLoading = false;
       });
 
+      //SUCCESSFUL LOG IN
       if (authCredential?.user != null) {
+        //Create a new document for that user with its uid
+        print('UUUUUUUUUUUSER::::::::::::: ${authCredential.user}');
+        await DatabaseService(uid: authCredential.user.uid).updateUserData(
+            'Mohamed Samy', 'muhamed.samy1@gmail.com', '+201005579290');
+
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => BottomNavScreen()));
+            MaterialPageRoute(builder: (context) => EditProfileScreen()));
       }
     } on FirebaseAuthException catch (e) {
       setState(() {
@@ -83,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-          maxLength: 9,
+          maxLength: 11,
           keyboardType: TextInputType.number,
           controller: phoneController,
         ),
@@ -138,6 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  //OTP State
   getOtpFormWidget(context) {
     return Column(
       children: [
