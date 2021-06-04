@@ -5,7 +5,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'bottom_nav_screen.dart';
+
 class BookingScreen extends StatefulWidget {
+  //Ask for booking type
+  final String _requiredService;
+  BookingScreen(this._requiredService, {Key key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return BookingScreenState();
@@ -13,12 +19,12 @@ class BookingScreen extends StatefulWidget {
 }
 
 class BookingScreenState extends State<BookingScreen> {
-  String _name;
-  String _address;
-  String _password;
-  String _url;
-  String _phone;
-  String _calories;
+  String _name = '';
+  String _address = '';
+  String _password = '';
+  String _url = '';
+  String _phone = '';
+  String _gender = '';
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -42,6 +48,7 @@ class BookingScreenState extends State<BookingScreen> {
   //Form address field
   Widget _buildAddress() {
     return TextFormField(
+      maxLines: 2,
       decoration: InputDecoration(labelText: 'العنوان'),
       // maxLength: 10,
       validator: (String value) {
@@ -93,6 +100,7 @@ class BookingScreenState extends State<BookingScreen> {
 
   Widget _buildPhoneNumber() {
     return TextFormField(
+      textDirection: TextDirection.ltr,
       decoration: InputDecoration(labelText: 'رقم التليفون'),
       keyboardType: TextInputType.phone,
       validator: (String value) {
@@ -103,14 +111,15 @@ class BookingScreenState extends State<BookingScreen> {
         return null;
       },
       onSaved: (String value) {
-        _url = value;
+        _phone = value;
       },
     );
   }
 
-  Widget _buildCalories() {
+  Widget _buildGender() {
     return TextFormField(
-      decoration: InputDecoration(labelText: 'أدوية تتناولها حاليا'),
+      decoration: InputDecoration(labelText: 'تفاصيل الحالة'),
+      maxLines: 5,
       validator: (String value) {
         int calories = int.tryParse(value);
 
@@ -121,8 +130,22 @@ class BookingScreenState extends State<BookingScreen> {
         return null;
       },
       onSaved: (String value) {
-        _calories = value;
+        _gender = value;
       },
+    );
+  }
+
+  Widget _buildRequiredService() {
+    return Container(
+      margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
+      padding: EdgeInsets.fromLTRB(30, 5, 30, 5),
+      decoration: BoxDecoration(
+          color: Palette.primaryColor.withOpacity(.5),
+          borderRadius: BorderRadius.all(Radius.circular(30.0))),
+      child: Text(
+        widget._requiredService,
+        style: TextStyle(fontSize: 16),
+      ),
     );
   }
 
@@ -133,7 +156,9 @@ class BookingScreenState extends State<BookingScreen> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Palette.primaryColor,
-          title: Text('حجز موعد'),
+          title: Text(
+            'حجز موعد',
+          ),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -143,13 +168,18 @@ class BookingScreenState extends State<BookingScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  _buildRequiredService(),
+                  SizedBox(height: 10),
                   _buildName(),
+                  SizedBox(height: 10),
                   _buildAddress(),
                   // _buildPassword(),
-                  _builURL(),
+                  // _builURL(),
+                  SizedBox(height: 10),
                   _buildPhoneNumber(),
-                  _buildCalories(),
-                  SizedBox(height: 100),
+                  SizedBox(height: 10),
+                  _buildGender(),
+                  SizedBox(height: 50),
                   RaisedButton(
                     color: Palette.primaryColor,
                     child: Text(
@@ -160,36 +190,44 @@ class BookingScreenState extends State<BookingScreen> {
                           fontWeight: FontWeight.bold),
                     ),
                     onPressed: () async {
-                      if (_formKey.currentState.validate()) {
+                      if (!_formKey.currentState.validate()) {
                         _formKey.currentState.save();
 
-                        var firebaseUser = FirebaseAuth.instance.currentUser;
-
-                        print('BOOKING:::uid::: ${firebaseUser.uid}');
-
-                        await DatabaseService(uid: firebaseUser.uid)
-                            .updateBookingData(
-                          _name,
-                          _address,
-                          _phone,
-                        );
+                        return;
                       }
+
+                      _formKey.currentState.save();
+
+                      var firebaseUser = FirebaseAuth.instance.currentUser;
+
+                      //Send to API
+                      //Update Firebase database Bookings collection
+                      await DatabaseService(uid: firebaseUser.uid)
+                          .updateBookingData(
+                        widget._requiredService,
+                        _name,
+                        _address,
+                        _phone,
+                      );
 
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Text(
                             'تم تأكيد الحجز وسيتم التواصل معك في أقرب وقت ممكن'),
                       ));
 
-                      _formKey.currentState.save();
-
+                      //For debugging
                       print(_name);
                       print(_address);
                       print(_phone);
                       print(_url);
                       print(_password);
-                      print(_calories);
-
-                      //Send to API
+                      print(_gender);
+                      //Navigate to main screen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BottomNavScreen()),
+                      );
                     },
                   )
                 ],
@@ -198,15 +236,6 @@ class BookingScreenState extends State<BookingScreen> {
           ),
         ),
       ),
-    );
-  }
-
-  void registerBooking() async {
-    print('BOOOOOOKING:::::::::uid::::: ${UserPreferences.uid}');
-    await DatabaseService(uid: UserPreferences.uid).updateBookingData(
-      _name,
-      _address,
-      _phone,
     );
   }
 }

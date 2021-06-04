@@ -37,9 +37,7 @@ class _NursingScreenState extends State<NursingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BookingScreen(
-                            // requiredService: 'd1',
-                            ),
+                        builder: (context) => BookingScreen('رعاية المسنين'),
                       ));
                 },
                 child: Row(
@@ -50,7 +48,7 @@ class _NursingScreenState extends State<NursingScreen> {
                       color: Palette.primaryColor,
                     ),
                     Text(
-                      "رعاية المسنين",
+                      'رعاية المسنين',
                       style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,
@@ -79,9 +77,7 @@ class _NursingScreenState extends State<NursingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BookingScreen(
-                            // requiredService: 'd1',
-                            ),
+                        builder: (context) => BookingScreen('رعاية طفل'),
                       ));
                 },
                 child: Row(
@@ -92,7 +88,7 @@ class _NursingScreenState extends State<NursingScreen> {
                       color: Palette.primaryColor,
                     ),
                     Text(
-                      "رعاية طفل",
+                      'رعاية طفل',
                       style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,
@@ -121,9 +117,8 @@ class _NursingScreenState extends State<NursingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BookingScreen(
-                            // requiredService: 'd1',
-                            ),
+                        builder: (context) =>
+                            BookingScreen('خدمة التمريض السريع'),
                       ));
                 },
                 child: Row(
@@ -134,7 +129,7 @@ class _NursingScreenState extends State<NursingScreen> {
                       color: Palette.primaryColor,
                     ),
                     Text(
-                      "خدمة التمريض السريع",
+                      'خدمة التمريض السريع',
                       style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,
@@ -163,9 +158,8 @@ class _NursingScreenState extends State<NursingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BookingScreen(
-                            // requiredService: 'd1',
-                            ),
+                        builder: (context) =>
+                            BookingScreen('تركيب قسطرة بولية'),
                       ));
                 },
                 child: Row(
@@ -176,7 +170,7 @@ class _NursingScreenState extends State<NursingScreen> {
                       color: Palette.primaryColor,
                     ),
                     Text(
-                      "تركيب قسطرة بولية",
+                      'تركيب قسطرة بولية',
                       style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,
@@ -205,9 +199,8 @@ class _NursingScreenState extends State<NursingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BookingScreen(
-                            // requiredService: 'd1',
-                            ),
+                        builder: (context) =>
+                            BookingScreen('إعطاء أدوية وريدية'),
                       ));
                 },
                 child: Row(
@@ -218,7 +211,7 @@ class _NursingScreenState extends State<NursingScreen> {
                       color: Palette.primaryColor,
                     ),
                     Text(
-                      "إعطاء أدوية وريدية",
+                      'إعطاء أدوية وريدية',
                       style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,
@@ -247,9 +240,8 @@ class _NursingScreenState extends State<NursingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BookingScreen(
-                            // requiredService: 'd1',
-                            ),
+                        builder: (context) =>
+                            BookingScreen('خدمة المناوبة بالمنزل'),
                       ));
                 },
                 child: Row(
@@ -260,7 +252,7 @@ class _NursingScreenState extends State<NursingScreen> {
                       color: Palette.primaryColor,
                     ),
                     Text(
-                      "خدمة المناوبة بالمنزل",
+                      'خدمة المناوبة بالمنزل',
                       style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,
@@ -289,9 +281,7 @@ class _NursingScreenState extends State<NursingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BookingScreen(
-                            // requiredService: 'd1',
-                            ),
+                        builder: (context) => BookingScreen('العناية بالجروح'),
                       ));
                 },
                 child: Row(
@@ -302,7 +292,7 @@ class _NursingScreenState extends State<NursingScreen> {
                       color: Palette.primaryColor,
                     ),
                     Text(
-                      "العناية بالجروح",
+                      'العناية بالجروح',
                       style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,

@@ -20,15 +20,12 @@ class DatabaseService {
   }
 
   Future<void> updateBookingData(
-      String patientName, String address, String phone) async {
+      String service, String patientName, String address, String phone) async {
     return await bookingCollection.doc(uid).set({
       'patient': patientName,
       'address': address,
       'phone': phone,
+      'service': service,
     });
-  }
-
-  String getUID() {
-    return uid;
   }
 }

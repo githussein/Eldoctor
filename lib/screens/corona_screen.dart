@@ -105,7 +105,7 @@ class _Corona extends State<CoronaScreen> {
                   children: <Widget>[
                     FlatButton.icon(
                         onPressed: () {
-                          UrlLauncher.launch('tel:+962789241999');
+                          UrlLauncher.launch('tel:+962797543452');
                         },
                         padding: const EdgeInsets.symmetric(
                             vertical: 10.0, horizontal: 20.0),
@@ -122,7 +122,7 @@ class _Corona extends State<CoronaScreen> {
                         )),
                     FlatButton.icon(
                         onPressed: () {
-                          UrlLauncher.launch('sms:+962789241999');
+                          UrlLauncher.launch('sms:+962797543452');
                         },
                         padding: const EdgeInsets.symmetric(
                             vertical: 10.0, horizontal: 20.0),

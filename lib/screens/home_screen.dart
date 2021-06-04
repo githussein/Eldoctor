@@ -251,7 +251,7 @@ class CategoriesScroller extends StatelessWidget {
                 margin: EdgeInsets.only(right: 10),
                 height: categoryHeight,
                 decoration: BoxDecoration(
-                  color: Palette.primaryColor.withOpacity(0.5),
+                  color: Colors.pink.shade100,
                   shape: BoxShape.circle,
                 ),
                 child: InkWell(
@@ -287,7 +287,7 @@ class CategoriesScroller extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
                   child: Padding(
                     padding: EdgeInsets.all(cardInnerSpace),
                     child: Column(
@@ -314,7 +314,7 @@ class CategoriesScroller extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
                   child: Padding(
                     padding: EdgeInsets.all(cardInnerSpace),
                     child: Column(
@@ -341,7 +341,7 @@ class CategoriesScroller extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
                   child: Padding(
                     padding: EdgeInsets.all(cardInnerSpace),
                     child: Column(
@@ -368,7 +368,7 @@ class CategoriesScroller extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
                   child: Padding(
                     padding: EdgeInsets.all(cardInnerSpace),
                     child: Column(
@@ -396,7 +396,7 @@ class CategoriesScroller extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
                   child: Padding(
                     padding: EdgeInsets.all(cardInnerSpace),
                     child: Column(
@@ -424,7 +424,7 @@ class CategoriesScroller extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
                   child: Padding(
                     padding: EdgeInsets.all(cardInnerSpace),
                     child: Column(
@@ -487,9 +487,8 @@ class ServicesScroller extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => BookingScreen(
-                              // requiredService: 'd1',
-                              ),
+                          builder: (context) =>
+                              BookingScreen('عيادة المسالك البولية'),
                         ));
                   },
                   child: Padding(
@@ -503,7 +502,7 @@ class ServicesScroller extends StatelessWidget {
                           height: 60,
                         ),
                         Text(
-                          "عيادة المسالك البولية",
+                          'عيادة المسالك البولية',
                           style: TextStyle(fontSize: 14, color: Colors.black),
                         ),
                         Container(
@@ -540,9 +539,8 @@ class ServicesScroller extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => BookingScreen(
-                              // requiredService: 'd1',
-                              ),
+                          builder: (context) =>
+                              BookingScreen('عيادة التجميل والترميم'),
                         ));
                   },
                   child: Padding(
@@ -556,7 +554,7 @@ class ServicesScroller extends StatelessWidget {
                           height: 60,
                         ),
                         Text(
-                          "عيادة التجميل والترميم",
+                          'عيادة التجميل والترميم',
                           style: TextStyle(fontSize: 14, color: Colors.black),
                         ),
                         Container(
@@ -593,9 +591,8 @@ class ServicesScroller extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => BookingScreen(
-                              // requiredService: 'd1',
-                              ),
+                          builder: (context) =>
+                              BookingScreen('عيادة الجراحة العامة'),
                         ));
                   },
                   child: Padding(
@@ -609,7 +606,7 @@ class ServicesScroller extends StatelessWidget {
                           height: 60,
                         ),
                         Text(
-                          "عيادة الجراحة العامة",
+                          'عيادة الجراحة العامة',
                           style: TextStyle(fontSize: 14, color: Colors.black),
                         ),
                         Container(
@@ -646,9 +643,8 @@ class ServicesScroller extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => BookingScreen(
-                              // requiredService: 'd1',
-                              ),
+                          builder: (context) =>
+                              BookingScreen('طب وجراحة العيون'),
                         ));
                   },
                   child: Padding(
@@ -662,7 +658,7 @@ class ServicesScroller extends StatelessWidget {
                           height: 60,
                         ),
                         Text(
-                          "طب وجراحة العيون",
+                          'طب وجراحة العيون',
                           style: TextStyle(fontSize: 14, color: Colors.black),
                         ),
                         Container(
@@ -724,7 +720,7 @@ class OthersScroller extends StatelessWidget {
                   ),
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
                   child: Padding(
                     padding: EdgeInsets.all(1),
                     child: Row(
@@ -781,7 +777,7 @@ class OthersScroller extends StatelessWidget {
                   ),
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
                   child: Padding(
                     padding: EdgeInsets.all(1),
                     child: Row(
@@ -838,7 +834,7 @@ class OthersScroller extends StatelessWidget {
                   ),
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
                   child: Padding(
                     padding: EdgeInsets.all(1),
                     child: Row(
@@ -895,7 +891,7 @@ class OthersScroller extends StatelessWidget {
                   ),
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
                   child: Padding(
                     padding: EdgeInsets.all(1),
                     child: Row(

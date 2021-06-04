@@ -195,7 +195,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
             signInWithPhoneAuthCredential(phoneAuthCredential);
           },
-          child: Text("تأكيد الرمز"),
+          child: Text(
+            "تأكيد الرمز",
+            style: TextStyle(
+                color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+          ),
           color: Palette.primaryColor,
           textColor: Colors.white,
         ),

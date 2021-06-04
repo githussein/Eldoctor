@@ -13,9 +13,9 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     HomeScreen(),
     FeaturedScreen(),
+    DashboardScreen(),
     CoronaScreen(),
     SettingsScreen(),
-    DashboardScreen(),
   ];
   int _currentIndex = 0;
 

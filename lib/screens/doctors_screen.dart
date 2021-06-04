@@ -36,9 +36,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BookingScreen(
-                            // requiredService: 'd1',
-                            ),
+                        builder: (context) => BookingScreen('طبيب عام'),
                       ));
                 },
                 child: Row(
@@ -49,7 +47,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                       color: Palette.primaryColor,
                     ),
                     Text(
-                      "طبيب عام",
+                      'طبيب عام',
                       style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,
@@ -72,9 +70,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BookingScreen(
-                            // requiredService: 'd1',
-                            ),
+                        builder: (context) => BookingScreen('الجراحة العامة'),
                       ));
                 },
                 child: Row(
@@ -85,7 +81,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                       color: Palette.primaryColor,
                     ),
                     Text(
-                      "الجراحة العامة",
+                      'الجراحة العامة',
                       style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,
@@ -108,9 +104,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BookingScreen(
-                            // requiredService: 'd1',
-                            ),
+                        builder: (context) => BookingScreen('طبيب باطني'),
                       ));
                 },
                 child: Row(
@@ -121,7 +115,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                       color: Palette.primaryColor,
                     ),
                     Text(
-                      "طبيب باطني",
+                      'طبيب باطني',
                       style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,

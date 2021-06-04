@@ -85,7 +85,7 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               InkWell(
-                onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                onTap: () => UrlLauncher.launch('tel:+962797543452'),
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.45,
                   padding: EdgeInsets.all(cardInnerPadding),
@@ -111,7 +111,7 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
                 ),
               ),
               InkWell(
-                onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                onTap: () => UrlLauncher.launch('tel:+962797543452'),
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.45,
                   padding: EdgeInsets.all(cardInnerPadding),
@@ -143,7 +143,7 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               InkWell(
-                onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                onTap: () => UrlLauncher.launch('tel:+962797543452'),
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.45,
                   padding: EdgeInsets.all(cardInnerPadding),
@@ -169,7 +169,7 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
                 ),
               ),
               InkWell(
-                onTap: () => UrlLauncher.launch('tel:+962789241999'),
+                onTap: () => UrlLauncher.launch('tel:+962797543452'),
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.45,
                   padding: EdgeInsets.all(cardInnerPadding),
