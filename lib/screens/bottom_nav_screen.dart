@@ -38,9 +38,9 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           items: [
             Icons.home,
             Icons.event_note,
+            Icons.dashboard,
             Icons.medical_services_outlined,
             Icons.menu,
-            Icons.dashboard
           ]
               .asMap()
               .map((key, value) => MapEntry(

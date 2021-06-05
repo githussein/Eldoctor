@@ -1,4 +1,5 @@
 import 'package:eldoctor/config/palette.dart';
+import 'package:eldoctor/screens/scan_screen.dart';
 import 'package:eldoctor/screens/screens.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -287,7 +288,13 @@ class CategoriesScroller extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BookingScreen('علاج طبيعي'),
+                        ));
+                  },
                   child: Padding(
                     padding: EdgeInsets.all(cardInnerSpace),
                     child: Column(
@@ -341,7 +348,13 @@ class CategoriesScroller extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ScanScreen(),
+                        ));
+                  },
                   child: Padding(
                     padding: EdgeInsets.all(cardInnerSpace),
                     child: Column(
@@ -368,7 +381,14 @@ class CategoriesScroller extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              BookingScreen('تأجير معدات طبية'),
+                        ));
+                  },
                   child: Padding(
                     padding: EdgeInsets.all(cardInnerSpace),
                     child: Column(
@@ -396,7 +416,13 @@ class CategoriesScroller extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BookingScreen('إرشادات غذائية'),
+                        ));
+                  },
                   child: Padding(
                     padding: EdgeInsets.all(cardInnerSpace),
                     child: Column(

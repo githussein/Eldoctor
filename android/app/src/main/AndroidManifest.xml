@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.eldoctor.eldoctor">
    <application
-        android:label="eldoctor"
+        android:label="Doctors &amp; Nurses"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

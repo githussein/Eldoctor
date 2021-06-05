@@ -23,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
   MobileVerificationState currentState =
       MobileVerificationState.SHOW_MOBILE_FORM_STATE;
 
-  String countryCode = '+49';
+  String countryCode = '+962';
   final phoneController = TextEditingController();
   final otpController = TextEditingController();
 
@@ -105,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-          maxLength: 11,
+          maxLength: 9,
           keyboardType: TextInputType.number,
           controller: phoneController,
         ),

@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eldoctor/config/palette.dart';
 import 'package:eldoctor/screens/screens.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override
@@ -16,6 +18,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
   User _user;
   bool isLoading = true;
 
+  final firestoreInstance = FirebaseFirestore.instance;
+  var firebaseUser = FirebaseAuth.instance.currentUser;
+
+  String _textToShare =
+      'تطبيق يحتوي خدمات صحية من مختلف التخصصات - حمل تطبيق Doctors & Nurses \n\nhttps://bit.ly/3z3iwgP';
+
   @override
   void initState() {
     super.initState();
@@ -23,7 +31,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
     _auth = FirebaseAuth.instance;
     _user = _auth.currentUser;
-    print('USERRRRRRRRRRRRRRRRRRRRRRRRRRRR: $_user');
+    print('USER: $_user');
     isLoading = false;
   }
 
@@ -98,7 +106,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         );
                       },
                       title: Text(
-                        "زكوان نصير",
+                        'زكوان نصير',
+                        // '${firestoreInstance.collection("Users").doc(firebaseUser.uid).get().then((value) => value.data()["name"])}',
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -172,13 +181,33 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         _buildDivider(),
                         ListTile(
                           leading: Icon(
-                            Icons.star,
+                            Icons.info,
                             color: Palette.primaryColor,
                           ),
-                          title: Text("تقييم التطبيق"),
+                          title: Text('حول التطبيق'),
                           trailing: Icon(Icons.keyboard_arrow_left),
                           onTap: () {
-                            //open change location
+                            showDialog<String>(
+                              context: context,
+                              builder: (BuildContext context) => AlertDialog(
+                                title: const Text(
+                                  'هل أعجبك التطبيق؟',
+                                  textDirection: TextDirection.rtl,
+                                ),
+                                content: const Text(
+                                  'إذا أعجبك التطبيق فيسعدنا أن تقوم بتقييم التطبيق على متجر التطبيقات.',
+                                  textDirection: TextDirection.rtl,
+                                  textAlign: TextAlign.center,
+                                ),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(context, 'OK'),
+                                    child: const Text('إغلاق'),
+                                  ),
+                                ],
+                              ),
+                            );
                           },
                         ),
                         _buildDivider(),
@@ -190,7 +219,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           title: Text("شارك التطبيق"),
                           trailing: Icon(Icons.keyboard_arrow_left),
                           onTap: () {
-                            //open change location
+                            Share.share(_textToShare);
                           },
                         ),
                       ],

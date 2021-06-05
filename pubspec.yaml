@@ -50,6 +50,9 @@ dependencies:
   http: ^0.13.3
   path_provider: ^2.0.2
 
+  # Share plugin
+  share: ^0.6.5+4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
