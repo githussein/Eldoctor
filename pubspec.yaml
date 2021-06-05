@@ -53,6 +53,8 @@ dependencies:
   # Share plugin
   share: ^0.6.5+4
 
+  map_launcher: ^2.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

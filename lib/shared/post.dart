@@ -4,7 +4,6 @@ import 'package:eldoctor/screens/bottom_nav_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
-import 'bottom_nav_screen.dart';
 
 class PostScreen extends StatefulWidget {
   //Ask for booking type

@@ -1,10 +1,12 @@
 import 'package:eldoctor/config/palette.dart';
+import 'package:eldoctor/screens/screens.dart';
 import 'package:eldoctor/widgets/dart/custom_app_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'bottom_nav_screen.dart';
+import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
+import 'package:url_launcher/url_launcher.dart';
 
-class NotificationsScreen extends StatelessWidget {
+class VaccineReminderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -15,7 +17,7 @@ class NotificationsScreen extends StatelessWidget {
           //iconTheme: IconThemeData(color: _dark ? Colors.white : Colors.black),
           backgroundColor: Palette.primaryColor,
           title: Text(
-            'الإشعارات',
+            'تنبيهات الأدوية',
             style: TextStyle(
               // color: _dark ? Colors.white : Palette.primaryColor,
               color: Colors.white,
@@ -41,12 +43,12 @@ class NotificationsScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                "assets/images/notification.png",
+                "assets/images/vaccine.png",
                 width: 100,
               ),
               SizedBox(height: 20),
               Text(
-                'ليس لديك أي إشعارات جديدة حتى الآن',
+                'ليس لديك تنبيهات بأية مطاعيم جديدة',
                 // textDirection: TextDirection.rtl,
               ),
             ],
@@ -54,5 +56,14 @@ class NotificationsScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+void _launchMapsUrl(double lat, double lon) async {
+  final url = 'https://www.google.com/maps/search/?api=1&query=$lat,$lon';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }

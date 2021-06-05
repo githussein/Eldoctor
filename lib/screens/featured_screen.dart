@@ -1,9 +1,12 @@
 import 'package:eldoctor/config/palette.dart';
 import 'package:eldoctor/config/styles.dart';
+import 'package:eldoctor/screens/reminders_screen.dart';
+import 'package:eldoctor/screens/vaccine_reminder_screen.dart';
 import 'package:eldoctor/widgets/dart/custom_app_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
+import 'package:url_launcher/url_launcher.dart';
 
 class FeaturedScreen extends StatefulWidget {
   @override
@@ -85,7 +88,12 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               InkWell(
-                onTap: () => UrlLauncher.launch('tel:+962797543452'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => RemindersScreen()));
+                },
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.45,
                   padding: EdgeInsets.all(cardInnerPadding),
@@ -111,7 +119,8 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
                 ),
               ),
               InkWell(
-                onTap: () => UrlLauncher.launch('tel:+962797543452'),
+                onTap: () =>
+                    _launchMapsUrl(31.955774504111634, 35.928382332939805),
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.45,
                   padding: EdgeInsets.all(cardInnerPadding),
@@ -143,7 +152,12 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               InkWell(
-                onTap: () => UrlLauncher.launch('tel:+962797543452'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => VaccineReminderScreen()));
+                },
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.45,
                   padding: EdgeInsets.all(cardInnerPadding),
@@ -169,7 +183,8 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
                 ),
               ),
               InkWell(
-                onTap: () => UrlLauncher.launch('tel:+962797543452'),
+                // onTap: () => UrlLauncher.launch('tel:+962797543452'),
+                onTap: () => launch("https://wa.me/+962797543452?text=Hello"),
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.45,
                   padding: EdgeInsets.all(cardInnerPadding),
@@ -222,5 +237,17 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
         ),
       ),
     );
+  }
+}
+
+//Launch maps
+// void _launchMapsUrl(double lat, double lon) async {
+void _launchMapsUrl(double lat, double lon) async {
+  final url =
+      'https://www.google.com/maps/search/%D9%85%D8%B1%D9%83%D8%B2+%D8%B7%D8%A8%D9%8A%E2%80%AD/@31.9639607,35.8271016,12z/data=!3m1!4b1';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
