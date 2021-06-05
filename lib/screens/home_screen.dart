@@ -2,6 +2,7 @@ import 'package:eldoctor/config/palette.dart';
 import 'package:eldoctor/screens/other_services_screen.dart';
 import 'package:eldoctor/screens/scan_screen.dart';
 import 'package:eldoctor/screens/screens.dart';
+import 'package:eldoctor/shared/post.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:eldoctor/widgets/dart/custom_app_bar.dart';
@@ -738,12 +739,18 @@ class OthersScroller extends StatelessWidget {
                   border: Border.all(color: Colors.grey),
                   color: Colors.white70,
                   borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(30.0),
+                    topRight: Radius.circular(.0),
                     bottomLeft: Radius.circular(30.0),
                   ),
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                PostScreen('أسعار فحص كورونا')));
+                  },
                   child: Padding(
                     padding: EdgeInsets.all(1),
                     child: Row(
@@ -771,7 +778,7 @@ class OthersScroller extends StatelessWidget {
                               padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
                               color: Palette.primaryColor,
                               child: Text(
-                                "30 دينار",
+                                "35 دينار",
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
@@ -800,7 +807,13 @@ class OthersScroller extends StatelessWidget {
                   ),
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                PostScreen('زيارة طبيب للمنزل')));
+                  },
                   child: Padding(
                     padding: EdgeInsets.all(1),
                     child: Row(
@@ -828,7 +841,7 @@ class OthersScroller extends StatelessWidget {
                               padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
                               color: Palette.primaryColor,
                               child: Text(
-                                "30 دينار",
+                                "20 دينار",
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
@@ -857,7 +870,13 @@ class OthersScroller extends StatelessWidget {
                   ),
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                PostScreen('زيارة تمريض للمنزل')));
+                  },
                   child: Padding(
                     padding: EdgeInsets.all(1),
                     child: Row(
@@ -885,7 +904,7 @@ class OthersScroller extends StatelessWidget {
                               padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
                               color: Palette.primaryColor,
                               child: Text(
-                                "15 دينار",
+                                "10 دينار",
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
@@ -914,7 +933,12 @@ class OthersScroller extends StatelessWidget {
                   ),
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PostScreen('معالج طبيعي')));
+                  },
                   child: Padding(
                     padding: EdgeInsets.all(1),
                     child: Row(
