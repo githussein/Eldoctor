@@ -1,4 +1,5 @@
 import 'package:eldoctor/config/palette.dart';
+import 'package:eldoctor/screens/other_services_screen.dart';
 import 'package:eldoctor/screens/scan_screen.dart';
 import 'package:eldoctor/screens/screens.dart';
 import 'package:flutter/cupertino.dart';
@@ -194,9 +195,9 @@ class CategoriesScroller extends StatelessWidget {
                 child: InkWell(
                   onTap: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => DoctorsScreen()),
-                    );
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DoctorsScreen()));
                   },
                   child: Padding(
                     padding: EdgeInsets.all(cardInnerSpace),
@@ -226,9 +227,9 @@ class CategoriesScroller extends StatelessWidget {
                 child: InkWell(
                   onTap: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => NursingScreen()),
-                    );
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => NursingScreen()));
                   },
                   child: Padding(
                     padding: EdgeInsets.all(cardInnerSpace),
@@ -258,9 +259,9 @@ class CategoriesScroller extends StatelessWidget {
                 child: InkWell(
                   onTap: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CoronaScreen()),
-                    );
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CoronaScreen()));
                   },
                   child: Padding(
                     padding: EdgeInsets.all(cardInnerSpace),
@@ -292,8 +293,7 @@ class CategoriesScroller extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => BookingScreen('علاج طبيعي'),
-                        ));
+                            builder: (context) => BookingScreen('علاج طبيعي')));
                   },
                   child: Padding(
                     padding: EdgeInsets.all(cardInnerSpace),
@@ -349,11 +349,8 @@ class CategoriesScroller extends StatelessWidget {
                 ),
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ScanScreen(),
-                        ));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ScanScreen()));
                   },
                   child: Padding(
                     padding: EdgeInsets.all(cardInnerSpace),
@@ -385,9 +382,8 @@ class CategoriesScroller extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              BookingScreen('تأجير معدات طبية'),
-                        ));
+                            builder: (context) =>
+                                BookingScreen('تأجير معدات طبية')));
                   },
                   child: Padding(
                     padding: EdgeInsets.all(cardInnerSpace),
@@ -395,7 +391,7 @@ class CategoriesScroller extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        Image.asset('assets/images/leg.png'),
+                        Image.asset('assets/images/equipment.png'),
                         Text(
                           "معدات طبية",
                           style: TextStyle(fontSize: 12, color: Colors.black),
@@ -450,7 +446,12 @@ class CategoriesScroller extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: InkWell(
-                  onTap: () => UrlLauncher.launch('tel:+962797543452'),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => OtherServicesScreen()));
+                  },
                   child: Padding(
                     padding: EdgeInsets.all(cardInnerSpace),
                     child: Column(
@@ -513,9 +514,8 @@ class ServicesScroller extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              BookingScreen('عيادة المسالك البولية'),
-                        ));
+                            builder: (context) =>
+                                BookingScreen('عيادة المسالك البولية')));
                   },
                   child: Padding(
                     padding: EdgeInsets.all(1),
@@ -565,9 +565,8 @@ class ServicesScroller extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              BookingScreen('عيادة التجميل والترميم'),
-                        ));
+                            builder: (context) =>
+                                BookingScreen('عيادة التجميل والترميم')));
                   },
                   child: Padding(
                     padding: EdgeInsets.all(1),
@@ -617,9 +616,8 @@ class ServicesScroller extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              BookingScreen('عيادة الجراحة العامة'),
-                        ));
+                            builder: (context) =>
+                                BookingScreen('عيادة الجراحة العامة')));
                   },
                   child: Padding(
                     padding: EdgeInsets.all(1),
@@ -669,9 +667,8 @@ class ServicesScroller extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              BookingScreen('طب وجراحة العيون'),
-                        ));
+                            builder: (context) =>
+                                BookingScreen('طب وجراحة العيون')));
                   },
                   child: Padding(
                     padding: EdgeInsets.all(1),

@@ -97,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
         TextField(
           decoration: InputDecoration(
             hintText: '',
-            prefix: Padding(
+            suffix: Padding(
               padding: EdgeInsets.all(4),
               child: Text(
                 '$countryCode',

@@ -1,5 +1,5 @@
 final prevention = [
-  {'assets/images/maske.png': 'استخدم الكمامة'},
+  {'assets/images/mask.png': 'استخدم الكمامة'},
   {'assets/images/waschen.png': 'اغسل يديك\nباستمرار'},
   {'assets/images/abstand.png': 'تجنب الأماكن\nالمزدحمة'},
 ];
