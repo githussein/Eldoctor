@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
@@ -48,7 +49,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (!snapshot.hasData)
               return Center(child: CircularProgressIndicator());
-            return new ListView(children: getExpenseItems(snapshot));
+            return ListView(children: getExpenseItems(snapshot));
           }),
     );
   }
@@ -62,21 +63,54 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   borderRadius: BorderRadius.all(Radius.circular(20.0))),
               child: Column(
                 children: [
-                  Container(
-                    margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
-                    padding: EdgeInsets.fromLTRB(30, 5, 30, 5),
-                    decoration: BoxDecoration(
-                        color: Palette.primaryColor.withOpacity(.5),
-                        borderRadius: BorderRadius.all(Radius.circular(30.0))),
-                    child: Text(
-                      doc["service"],
-                      style: TextStyle(fontSize: 16),
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: 10),
+                        padding: EdgeInsets.symmetric(horizontal: 5),
+                        decoration: BoxDecoration(
+                            color: Palette.primaryColor.withOpacity(.5),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(30.0))),
+                        child: Text(
+                          doc["service"],
+                          // style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.remove_circle),
+                        color: Colors.red.shade700,
+                        iconSize: 30,
+                        onPressed: () => deleteBooking(doc["patient"]),
+                      ),
+                    ],
                   ),
+                  // Container(
+                  //   margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
+                  //   padding: EdgeInsets.fromLTRB(30, 5, 30, 5),
+                  //   decoration: BoxDecoration(
+                  //       color: Palette.primaryColor.withOpacity(.5),
+                  //       borderRadius: BorderRadius.all(Radius.circular(30.0))),
+                  //   child: Text(
+                  //     doc["gender"],
+                  //     style: TextStyle(fontSize: 16),
+                  //   ),
+                  // ),
+                  Divider(color: Palette.secondaryColor, thickness: .5),
                   InkWell(
                     onTap: () => UrlLauncher.launch('tel:$doc["phone"]'),
                     child: ListTile(
-                      leading: Text(doc["patient"]),
+                      leading: Column(
+                        children: [
+                          Text(
+                            doc["patient"],
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                            maxLines: 2,
+                          ),
+                          Text(doc["gender"]),
+                        ],
+                      ),
                       trailing: Icon(Icons.call),
                       title: Text(
                         doc["phone"],
@@ -88,9 +122,30 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                     ),
                   ),
+                  Divider(color: Palette.secondaryColor, thickness: .5),
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      doc["details"],
+                      style: TextStyle(fontSize: 16),
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
                 ],
               ),
             ))
         .toList();
+  }
+
+  Future deleteBooking(String patientName) {
+    var firebaseUser = FirebaseAuth.instance.currentUser;
+    CollectionReference users =
+        FirebaseFirestore.instance.collection('Bookings');
+
+    return users
+        .doc(patientName)
+        .delete()
+        .then((value) => print("Booking Deleted"))
+        .catchError((error) => print("Failed to delete booking: $error"));
   }
 }

@@ -4,7 +4,6 @@ import 'package:eldoctor/utils/user_preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'bottom_nav_screen.dart';
 
 class BookingScreen extends StatefulWidget {
@@ -24,9 +23,18 @@ class BookingScreenState extends State<BookingScreen> {
   String _password = '';
   String _url = '';
   String _phone = '';
-  String _gender = '';
+  String _gender = 'ذكر';
+  String _details = 'لا يوجد تفاصيل';
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  List<bool> isSelected;
+
+  @override
+  void initState() {
+    isSelected = [true, false];
+    super.initState();
+  }
 
   Widget _buildName() {
     return TextFormField(
@@ -41,6 +49,19 @@ class BookingScreenState extends State<BookingScreen> {
       },
       onSaved: (String value) {
         _name = value;
+      },
+    );
+  }
+
+  Widget _buildDetails() {
+    return TextFormField(
+      decoration: InputDecoration(labelText: 'تفاصيل الحالة'),
+      maxLines: 5,
+      onSaved: (String value) {
+        if (value == '')
+          _details = 'لا يوجد تفاصيل';
+        else
+          _details = value;
       },
     );
   }
@@ -116,25 +137,6 @@ class BookingScreenState extends State<BookingScreen> {
     );
   }
 
-  Widget _buildGender() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'تفاصيل الحالة'),
-      maxLines: 5,
-      validator: (String value) {
-        int calories = int.tryParse(value);
-
-        if (calories == null || calories <= 0) {
-          // return 'Calories must be greater than 0';
-        }
-
-        return null;
-      },
-      onSaved: (String value) {
-        _gender = value;
-      },
-    );
-  }
-
   Widget _buildRequiredService() {
     return Container(
       margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
@@ -177,10 +179,50 @@ class BookingScreenState extends State<BookingScreen> {
                   // _builURL(),
                   SizedBox(height: 10),
                   _buildPhoneNumber(),
+                  SizedBox(height: 20),
+                  Text('النوع'),
                   SizedBox(height: 10),
-                  _buildGender(),
+                  ToggleButtons(
+                    // borderColor: Colors.black,
+                    fillColor: Palette.primaryColor,
+                    borderWidth: 2,
+                    selectedBorderColor: Palette.secondaryColor,
+                    selectedColor: Colors.white,
+                    borderRadius: BorderRadius.circular(0),
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 40),
+                        child: Text(
+                          'ذكر',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 40),
+                        child: Text(
+                          'أنثى',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                    ],
+                    onPressed: (int index) {
+                      setState(() {
+                        for (int i = 0; i < isSelected.length; i++) {
+                          isSelected[i] = i == index;
+                        }
+                      });
+                      if (index == 0)
+                        _gender = 'ذكر';
+                      else
+                        _gender = 'أنثى';
+                    },
+                    isSelected: isSelected,
+                  ),
+                  SizedBox(height: 20),
+                  _buildDetails(),
                   SizedBox(height: 50),
                   RaisedButton(
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
                     color: Palette.primaryColor,
                     child: Text(
                       'تأكيد الحجز',
@@ -208,6 +250,8 @@ class BookingScreenState extends State<BookingScreen> {
                         _name,
                         _address,
                         _phone,
+                        _gender,
+                        _details,
                       );
 
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
