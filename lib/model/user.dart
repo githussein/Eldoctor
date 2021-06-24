@@ -4,7 +4,7 @@ class MyUser {
   String name;
   String email;
   String phone;
-  // final String about;
+  final String about;
   // final bool isDarkMode;
 
   MyUser({
@@ -12,7 +12,7 @@ class MyUser {
     this.name,
     this.email,
     this.phone,
-    // this.about,
+    this.about,
     // this.isDarkMode,
   });
 }

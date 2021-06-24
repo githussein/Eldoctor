@@ -4,6 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:eldoctor/screens/screens.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+//@TODO Add splash screen
+//@TODO Edit categories of Scan Screen
+//@TODO Edit categories of Others Screen
+//@TODO Edit pricing
+
+//@TODO Add English language
+//@TODO Integrate PayPal payment
+//@TODO Integrate maps-based location
+
 void main() async {
   //Initialize the Firebase library before doing anything else
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,7 +56,6 @@ class _InitializerWidgetState extends State<InitializerWidget> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _auth = FirebaseAuth.instance;
     _user = _auth.currentUser;

@@ -778,7 +778,7 @@ class OthersScroller extends StatelessWidget {
                               padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
                               color: Palette.primaryColor,
                               child: Text(
-                                "35 دينار",
+                                "25 دينار",
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
@@ -841,7 +841,7 @@ class OthersScroller extends StatelessWidget {
                               padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
                               color: Palette.primaryColor,
                               child: Text(
-                                "20 دينار",
+                                "30 دينار",
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
@@ -904,7 +904,7 @@ class OthersScroller extends StatelessWidget {
                               padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
                               color: Palette.primaryColor,
                               child: Text(
-                                "10 دينار",
+                                "15 دينار",
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
@@ -966,7 +966,7 @@ class OthersScroller extends StatelessWidget {
                               padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
                               color: Palette.primaryColor,
                               child: Text(
-                                "25 دينار",
+                                "30 دينار",
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,

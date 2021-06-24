@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eldoctor/config/palette.dart';
 import 'package:eldoctor/model/user.dart';
 import 'package:eldoctor/screens/screens.dart';
@@ -14,91 +15,119 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    final user = UserPreferences.myUser;
-
-    return Builder(
-      builder: (context) => Directionality(
-        textDirection: TextDirection.rtl,
-        child: Scaffold(
-          appBar: AppBar(
-            elevation: 0,
-            //iconTheme: IconThemeData(color: _dark ? Colors.white : Colors.black),
-            backgroundColor: Palette.primaryColor,
-            title: Text(
-              'الملف الشخصي',
-              style: TextStyle(
-                // color: _dark ? Colors.white : Palette.primaryColor,
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        // backgroundColor: Palette.primaryColor,
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Palette.primaryColor,
+          title: Text(
+            'الملف الشخصي',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
             ),
-            leading: IconButton(
+          ),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => BottomNavScreen()),
+              );
+            },
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+            ),
+          ),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.edit),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => BottomNavScreen()),
+                  MaterialPageRoute(
+                      //TODO pass the user ID
+                      builder: (context) => EditProfileScreen('')),
                 );
               },
-              icon: Icon(
-                Icons.arrow_back,
-                color: Colors.white,
-              ),
-            ),
-            actions: <Widget>[
-              IconButton(
-                icon: Icon(Icons.edit),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        //TODO pass the user ID
-                        builder: (context) => EditProfileScreen('')),
-                  );
-                },
-              )
-            ],
-          ),
-          // appBar: buildAppBar(context),
-          body: ListView(
-            physics: BouncingScrollPhysics(),
-            children: [
-              const SizedBox(height: 36),
-              ProfileWidget(
-                imagePath: user.imagePath,
-                onClicked: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                        //TODO pass the user ID
-                        builder: (context) => EditProfileScreen('')),
-                  );
-                },
-              ),
-              const SizedBox(height: 24),
-              buildName(user),
-              // const SizedBox(height: 24),
-              // Center(child: buildUpgradeButton()),
-              // const SizedBox(height: 24),
-              // NumbersWidget(),
-              const SizedBox(height: 48),
-              buildAbout(user),
-            ],
-          ),
+            )
+          ],
         ),
+        body: StreamBuilder<QuerySnapshot>(
+            stream: FirebaseFirestore.instance.collection('Users').snapshots(),
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (!snapshot.hasData)
+                return Center(child: CircularProgressIndicator());
+              return ListView(children: getUsersItems(snapshot));
+            }),
       ),
     );
   }
 
-  Widget buildName(MyUser user) => Column(
+  getUsersItems(AsyncSnapshot<QuerySnapshot> snapshot) {
+    return snapshot.data.docs
+        .map((doc) => Column(
+              children: [
+                const SizedBox(height: 36),
+                ProfileWidget(
+                  imagePath:
+                      'https://image.flaticon.com/icons/png/512/236/236831.png',
+                  onClicked: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                          //TODO pass the user ID
+                          builder: (context) => EditProfileScreen('')),
+                    );
+                  },
+                ),
+                const SizedBox(height: 24),
+                buildName(
+                  doc["name"],
+                  doc["email"],
+                ),
+                buildPhone(doc["phone"]),
+                // const SizedBox(height: 24),
+                // Center(child: buildUpgradeButton()),
+                // const SizedBox(height: 24),
+                // NumbersWidget(),
+                const SizedBox(height: 48),
+                buildAbout(doc["about"]),
+              ],
+            ))
+        .toList();
+  }
+
+  Widget buildName(String myName, String myEmail) => Column(
         children: [
           Text(
-            user.name,
+            myName,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
           ),
           const SizedBox(height: 4),
           Text(
-            user.email,
-            style: TextStyle(color: Colors.grey),
+            myEmail,
+            style: TextStyle(color: Colors.black38, fontSize: 16),
+          )
+        ],
+      );
+
+  Widget buildPhone(String myPhone) => Column(
+        children: [
+          const SizedBox(height: 16),
+          Text(
+            'رقم التليفون',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            textAlign: TextAlign.right,
+          ),
+          const SizedBox(height: 4),
+          Text(
+            myPhone,
+            style: TextStyle(color: Colors.black38, fontSize: 16),
+            textDirection: TextDirection.ltr,
           )
         ],
       );
@@ -110,7 +139,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         },
       );
 
-  Widget buildAbout(MyUser user) => Container(
+  Widget buildAbout(String myAbout) => Container(
         padding: EdgeInsets.symmetric(horizontal: 48),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,7 +150,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             const SizedBox(height: 16),
             Text(
-              user.phone,
+              myAbout,
               style: TextStyle(fontSize: 16, height: 1.4),
             ),
             const SizedBox(height: 16),

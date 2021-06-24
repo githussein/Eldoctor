@@ -106,7 +106,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         );
                       },
                       title: Text(
-                        'زكوان نصير',
+                        '${FirebaseAuth.instance.currentUser.displayName}',
                         // '${firestoreInstance.collection("Users").doc(firebaseUser.uid).get().then((value) => value.data()["name"])}',
                         style: TextStyle(
                           color: Colors.white,

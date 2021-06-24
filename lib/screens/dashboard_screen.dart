@@ -4,9 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eldoctor/config/palette.dart';
-import 'package:eldoctor/config/styles.dart';
-import 'package:eldoctor/widgets/dart/custom_app_bar.dart';
-
 import 'bottom_nav_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -49,12 +46,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
               (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (!snapshot.hasData)
               return Center(child: CircularProgressIndicator());
-            return ListView(children: getExpenseItems(snapshot));
+            return ListView(children: getBookingsItems(snapshot));
           }),
     );
   }
 
-  getExpenseItems(AsyncSnapshot<QuerySnapshot> snapshot) {
+  getBookingsItems(AsyncSnapshot<QuerySnapshot> snapshot) {
     return snapshot.data.docs
         .map((doc) => Container(
               margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
@@ -80,7 +77,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                       IconButton(
                         icon: Icon(Icons.remove_circle),
-                        color: Colors.red.shade700,
+                        color: Colors.red.shade900,
                         iconSize: 30,
                         onPressed: () => deleteBooking(doc["patient"]),
                       ),
@@ -100,26 +97,50 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   Divider(color: Palette.secondaryColor, thickness: .5),
                   InkWell(
                     onTap: () => UrlLauncher.launch('tel:$doc["phone"]'),
-                    child: ListTile(
-                      leading: Column(
-                        children: [
-                          Text(
-                            doc["patient"],
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                            maxLines: 2,
+                    child: Column(
+                      children: [
+                        ListTile(
+                          leading: Column(
+                            children: [
+                              Text(
+                                doc["patient"],
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                                maxLines: 2,
+                              ),
+                              Text(doc["gender"]),
+                            ],
                           ),
-                          Text(doc["gender"]),
-                        ],
-                      ),
-                      trailing: Icon(Icons.call),
-                      title: Text(
-                        doc["phone"],
-                        textDirection: TextDirection.ltr,
-                      ),
-                      subtitle: Text(
-                        doc["address"],
-                        textAlign: TextAlign.left,
-                      ),
+                          trailing: Icon(
+                            Icons.call,
+                            color: Colors.green.shade700,
+                            size: 30,
+                          ),
+                          title: Text(
+                            doc["phone"],
+                            textDirection: TextDirection.ltr,
+                          ),
+                          subtitle: Text(
+                            doc["address"],
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'تاريخ:     ',
+                                style: TextStyle(fontSize: 16),
+                              ),
+                              Text(
+                                formatDate(doc["date"].toDate()),
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Divider(color: Palette.secondaryColor, thickness: .5),
@@ -147,5 +168,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
         .delete()
         .then((value) => print("Booking Deleted"))
         .catchError((error) => print("Failed to delete booking: $error"));
+  }
+
+  String formatDate(DateTime myDate) {
+    return myDate.day.toString() +
+        '/' +
+        myDate.month.toString() +
+        '/' +
+        myDate.year.toString();
   }
 }

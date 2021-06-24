@@ -23,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
   MobileVerificationState currentState =
       MobileVerificationState.SHOW_MOBILE_FORM_STATE;
 
-  String countryCode = '+962';
+  String countryCode = '+49';
   final phoneController = TextEditingController();
   final otpController = TextEditingController();
 
@@ -59,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
         //Create a new document for that user with its uid
         await DatabaseService(uid: authCredential.user.uid).updateUserData(
-            'Muhamed Samy', 'muhamed.samy1@gmail.com', '+201005579290');
+            'Muhamed Samy', 'muhamed.samy1@gmail.com', '+201005579290', '');
 
         Navigator.push(
             context,
@@ -105,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-          maxLength: 9,
+          maxLength: 11,
           keyboardType: TextInputType.number,
           controller: phoneController,
         ),
@@ -136,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 });
                 _scaffoldKey.currentState.showSnackBar(SnackBar(
                     content: Text(
-                  'لقد قمت بإدخال رقم الهاتف بطريقة غير صحيحة',
+                  'لقد قمت بإدخال الرقم بطريقة غير صحيحة',
                   textDirection: TextDirection.rtl,
                 )));
               },

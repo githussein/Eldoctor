@@ -25,6 +25,7 @@ class BookingScreenState extends State<BookingScreen> {
   String _phone = '';
   String _gender = 'ذكر';
   String _details = 'لا يوجد تفاصيل';
+  DateTime selectedDate = DateTime.now();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -64,6 +65,39 @@ class BookingScreenState extends State<BookingScreen> {
           _details = value;
       },
     );
+  }
+
+  Widget buildDate() {
+    return RaisedButton(
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+      color: Palette.primaryColor.withOpacity(.7),
+      child: Text(
+        'تاريخ الكشف',
+        style: TextStyle(
+            color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+      ),
+      onPressed: () async {
+        showDatePicker(
+          context: context,
+          initialDate: DateTime.now(),
+          firstDate: DateTime.now(),
+          lastDate: DateTime(2022),
+        );
+      },
+    );
+  }
+
+  _selectDate(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate, // Refer step 1
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2025),
+    );
+    if (picked != null && picked != selectedDate)
+      setState(() {
+        selectedDate = picked;
+      });
   }
 
   //Form address field
@@ -180,6 +214,8 @@ class BookingScreenState extends State<BookingScreen> {
                   SizedBox(height: 10),
                   _buildPhoneNumber(),
                   SizedBox(height: 20),
+                  buildDate(),
+                  SizedBox(height: 30),
                   Text('النوع'),
                   SizedBox(height: 10),
                   ToggleButtons(
@@ -252,6 +288,7 @@ class BookingScreenState extends State<BookingScreen> {
                         _phone,
                         _gender,
                         _details,
+                        selectedDate,
                       );
 
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
