@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:eldoctor/widgets/dart/custom_app_bar.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
-
+import 'package:eldoctor/app_localizations.dart';
 import 'booking_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -54,16 +54,16 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
-              'تطبيق دوائـي',
+              AppLocalizations.of(context).translate('app_title'),
               style: const TextStyle(
                 color: Colors.white,
-                fontSize: 18.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.bold,
               ),
               textDirection: TextDirection.rtl,
             ),
             Text(
-              'نأمل أن تكون بحال أفضل اليوم',
+              AppLocalizations.of(context).translate('app_slogan'),
               style: const TextStyle(
                 color: Colors.white70,
                 fontSize: 16.0,
@@ -88,12 +88,13 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
-              'اختر التخصص',
+              AppLocalizations.of(context).translate('choose-category'),
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              textDirection: TextDirection.rtl,
+              // textDirection: TextDirection.ltr,
+              // textAlign: TextAlign.center,
             ),
             categoriesScroller,
           ],
@@ -114,10 +115,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
-              'مواعيد داخل عيادتنا',
+              AppLocalizations.of(context).translate('visit-clinic'),
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               textDirection: TextDirection.rtl,
             ),
@@ -140,10 +141,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
-              'أسعارنا',
+              AppLocalizations.of(context).translate('prices'),
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               textDirection: TextDirection.rtl,
             ),
@@ -208,7 +209,8 @@ class CategoriesScroller extends StatelessWidget {
                       children: <Widget>[
                         Image.asset('assets/images/doctor.png'),
                         Text(
-                          "أطباء",
+                          // 'doctors',
+                          AppLocalizations.of(context).translate('doctors'),
                           style: TextStyle(fontSize: 14, color: Colors.black),
                         ),
                       ],
@@ -240,7 +242,7 @@ class CategoriesScroller extends StatelessWidget {
                       children: <Widget>[
                         Image.asset('assets/images/nurse.png'),
                         Text(
-                          "تمريض",
+                          AppLocalizations.of(context).translate('nurses'),
                           style: TextStyle(fontSize: 14, color: Colors.black),
                         ),
                       ],
@@ -272,7 +274,7 @@ class CategoriesScroller extends StatelessWidget {
                       children: <Widget>[
                         Image.asset('assets/images/vaccine.png'),
                         Text(
-                          "فحص كورونا",
+                          AppLocalizations.of(context).translate('corona-test'),
                           style: TextStyle(fontSize: 12, color: Colors.black),
                         ),
                       ],
@@ -304,8 +306,10 @@ class CategoriesScroller extends StatelessWidget {
                       children: <Widget>[
                         Image.asset('assets/images/massage.png'),
                         Text(
-                          "علاج طبيعي",
+                          AppLocalizations.of(context)
+                              .translate('natural-therapy'),
                           style: TextStyle(fontSize: 12, color: Colors.black),
+                          textAlign: TextAlign.center,
                         ),
                       ],
                     ),
@@ -331,7 +335,7 @@ class CategoriesScroller extends StatelessWidget {
                       children: <Widget>[
                         Image.asset('assets/images/test.png'),
                         Text(
-                          "المختبر",
+                          AppLocalizations.of(context).translate('lab'),
                           style: TextStyle(fontSize: 14, color: Colors.black),
                         ),
                       ],
@@ -361,7 +365,7 @@ class CategoriesScroller extends StatelessWidget {
                       children: <Widget>[
                         Image.asset('assets/images/scan.png'),
                         Text(
-                          "أشعة",
+                          AppLocalizations.of(context).translate('scan'),
                           style: TextStyle(fontSize: 14, color: Colors.black),
                         ),
                       ],
@@ -394,7 +398,8 @@ class CategoriesScroller extends StatelessWidget {
                       children: <Widget>[
                         Image.asset('assets/images/equipment.png'),
                         Text(
-                          "معدات طبية",
+                          AppLocalizations.of(context)
+                              .translate('medical-tools'),
                           style: TextStyle(fontSize: 12, color: Colors.black),
                           textAlign: TextAlign.center,
                         ),
@@ -428,7 +433,7 @@ class CategoriesScroller extends StatelessWidget {
                       children: <Widget>[
                         Image.asset('assets/images/apple.png'),
                         Text(
-                          "تغذية",
+                          AppLocalizations.of(context).translate('nutrition'),
                           style: TextStyle(fontSize: 14, color: Colors.black),
                           textAlign: TextAlign.center,
                         ),
@@ -461,7 +466,7 @@ class CategoriesScroller extends StatelessWidget {
                       children: <Widget>[
                         Image.asset('assets/images/more.png'),
                         Text(
-                          "خدمات أخرى",
+                          "other-services",
                           style: TextStyle(fontSize: 12, color: Colors.black),
                           textAlign: TextAlign.center,
                         ),
@@ -529,7 +534,7 @@ class ServicesScroller extends StatelessWidget {
                           height: 60,
                         ),
                         Text(
-                          'عيادة المسالك البولية',
+                          AppLocalizations.of(context).translate('urology'),
                           style: TextStyle(fontSize: 14, color: Colors.black),
                         ),
                         Container(
@@ -538,7 +543,7 @@ class ServicesScroller extends StatelessWidget {
                           color: Colors.grey,
                         ),
                         Text(
-                          "احجـز الآن",
+                          AppLocalizations.of(context).translate('book-now'),
                           style: TextStyle(
                             fontSize: 14,
                             color: bookNowTicket,
@@ -580,7 +585,7 @@ class ServicesScroller extends StatelessWidget {
                           height: 60,
                         ),
                         Text(
-                          'عيادة التجميل والترميم',
+                          AppLocalizations.of(context).translate('plastic'),
                           style: TextStyle(fontSize: 14, color: Colors.black),
                         ),
                         Container(
@@ -589,7 +594,7 @@ class ServicesScroller extends StatelessWidget {
                           color: Colors.grey,
                         ),
                         Text(
-                          "احجـز الآن",
+                          AppLocalizations.of(context).translate('book-now'),
                           style: TextStyle(
                             fontSize: 14,
                             color: bookNowTicket,
@@ -631,7 +636,7 @@ class ServicesScroller extends StatelessWidget {
                           height: 60,
                         ),
                         Text(
-                          'عيادة الجراحة العامة',
+                          AppLocalizations.of(context).translate('surgery'),
                           style: TextStyle(fontSize: 14, color: Colors.black),
                         ),
                         Container(
@@ -640,7 +645,7 @@ class ServicesScroller extends StatelessWidget {
                           color: Colors.grey,
                         ),
                         Text(
-                          "احجـز الآن",
+                          AppLocalizations.of(context).translate('book-now'),
                           style: TextStyle(
                             fontSize: 14,
                             color: bookNowTicket,
@@ -682,7 +687,8 @@ class ServicesScroller extends StatelessWidget {
                           height: 60,
                         ),
                         Text(
-                          'طب وجراحة العيون',
+                          AppLocalizations.of(context)
+                              .translate('ophthalmology'),
                           style: TextStyle(fontSize: 14, color: Colors.black),
                         ),
                         Container(
@@ -691,9 +697,9 @@ class ServicesScroller extends StatelessWidget {
                           color: Colors.grey,
                         ),
                         Text(
-                          "احجـز الآن",
+                          AppLocalizations.of(context).translate('book-now'),
                           style: TextStyle(
-                            fontSize: 14,
+                            fontSize: 16,
                             color: bookNowTicket,
                             fontWeight: FontWeight.bold,
                           ),
@@ -765,7 +771,8 @@ class OthersScroller extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              "أسعار فحص كورونا",
+                              AppLocalizations.of(context)
+                                  .translate('test-price'),
                               style: TextStyle(
                                   fontSize: 14,
                                   color: Colors.black,
@@ -778,7 +785,8 @@ class OthersScroller extends StatelessWidget {
                               padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
                               color: Palette.primaryColor,
                               child: Text(
-                                "25 دينار",
+                                AppLocalizations.of(context).translate('jod') +
+                                    ' 25 ',
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
@@ -828,7 +836,8 @@ class OthersScroller extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              "زيارة طبيب للمنزل",
+                              AppLocalizations.of(context)
+                                  .translate('doctor-visit'),
                               style: TextStyle(
                                   fontSize: 14,
                                   color: Colors.black,
@@ -841,7 +850,8 @@ class OthersScroller extends StatelessWidget {
                               padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
                               color: Palette.primaryColor,
                               child: Text(
-                                "30 دينار",
+                                AppLocalizations.of(context).translate('jod') +
+                                    ' 30 ',
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
@@ -891,7 +901,8 @@ class OthersScroller extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              "زيارة تمريض منزلية\nدون إقامة",
+                              AppLocalizations.of(context)
+                                  .translate('nurse-visit'),
                               style: TextStyle(
                                   fontSize: 14,
                                   color: Colors.black,
@@ -904,7 +915,8 @@ class OthersScroller extends StatelessWidget {
                               padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
                               color: Palette.primaryColor,
                               child: Text(
-                                "15 دينار",
+                                AppLocalizations.of(context).translate('jod') +
+                                    ' 15 ',
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
@@ -953,7 +965,8 @@ class OthersScroller extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              "معالج طبيعي",
+                              AppLocalizations.of(context)
+                                  .translate('natural-visit'),
                               style: TextStyle(
                                   fontSize: 14,
                                   color: Colors.black,
@@ -966,7 +979,8 @@ class OthersScroller extends StatelessWidget {
                               padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
                               color: Palette.primaryColor,
                               child: Text(
-                                "30 دينار",
+                                AppLocalizations.of(context).translate('jod') +
+                                    ' 30 ',
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,

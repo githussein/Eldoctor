@@ -6,6 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
 
+import '../app_localizations.dart';
+
 class SettingsScreen extends StatefulWidget {
   @override
   _SettingsScreenState createState() => _SettingsScreenState();
@@ -53,7 +55,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           iconTheme: IconThemeData(color: _dark ? Colors.white : Colors.black),
           backgroundColor: Palette.primaryColor,
           title: Text(
-            'الإعدادات',
+            AppLocalizations.of(context).translate('settings'),
             style: TextStyle(
               // color: _dark ? Colors.white : Palette.primaryColor,
               color: Colors.white,
@@ -136,14 +138,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             Icons.info,
                             color: Palette.primaryColor,
                           ),
-                          title: Text("حول التطبيق"),
+                          title: Text(
+                            AppLocalizations.of(context).translate('about'),
+                          ),
                           trailing: Icon(Icons.keyboard_arrow_left),
                           onTap: () {
                             showDialog<String>(
                               context: context,
                               builder: (BuildContext context) => AlertDialog(
-                                title: const Text(
-                                  'حول التطبيق',
+                                title: Text(
+                                  AppLocalizations.of(context)
+                                      .translate('about'),
                                   textDirection: TextDirection.rtl,
                                 ),
                                 content: const Text(
@@ -168,7 +173,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             Icons.lock,
                             color: Palette.primaryColor,
                           ),
-                          title: Text("سياسة الخصوصية"),
+                          title: Text(
+                            AppLocalizations.of(context).translate('privacy'),
+                          ),
                           trailing: Icon(Icons.keyboard_arrow_left),
                           onTap: () {
                             Navigator.push(
@@ -184,7 +191,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             Icons.info,
                             color: Palette.primaryColor,
                           ),
-                          title: Text('حول التطبيق'),
+                          title: Text(
+                            AppLocalizations.of(context).translate('rate'),
+                          ),
                           trailing: Icon(Icons.keyboard_arrow_left),
                           onTap: () {
                             showDialog<String>(
@@ -216,7 +225,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             Icons.share,
                             color: Palette.primaryColor,
                           ),
-                          title: Text("شارك التطبيق"),
+                          title: Text(
+                            AppLocalizations.of(context).translate('share'),
+                          ),
                           trailing: Icon(Icons.keyboard_arrow_left),
                           onTap: () {
                             Share.share(_textToShare);
@@ -227,7 +238,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   const SizedBox(height: 20.0),
                   Text(
-                    "إعدادات عامة",
+                    AppLocalizations.of(context).translate('general-settings'),
                     style: TextStyle(
                       fontSize: 18.0,
                       fontWeight: FontWeight.bold,
@@ -238,7 +249,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     activeColor: Palette.primaryColor,
                     contentPadding: const EdgeInsets.all(0),
                     value: true,
-                    title: Text("استلام الإشعارات"),
+                    title: Text(
+                      AppLocalizations.of(context).translate('receive-notifs'),
+                    ),
                     onChanged: (val) {},
                   ),
                   // SwitchListTile(
@@ -275,7 +288,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             Icons.logout,
                             color: Palette.primaryColor,
                           ),
-                          title: Text("تسجيل الخروج"),
+                          title: Text(
+                            AppLocalizations.of(context).translate('sign-out'),
+                          ),
                           onTap: () async {
                             /// Method to Logout the FirebaseUser
                             try {

@@ -1,3 +1,4 @@
+import 'package:eldoctor/app_localizations.dart';
 import 'package:eldoctor/config/palette.dart';
 import 'package:eldoctor/config/styles.dart';
 import 'package:eldoctor/screens/reminders_screen.dart';
@@ -63,7 +64,7 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
                       bottomLeft: Radius.circular(30.0),
                     )),
                 child: Text(
-                  'تنبيهات مهمة',
+                  AppLocalizations.of(context).translate('important-reminders'),
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
@@ -101,6 +102,7 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
                       color: Colors.grey.shade200,
                       borderRadius: BorderRadius.all(Radius.circular(20.0))),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
                         "assets/images/reminder.png",
@@ -108,11 +110,13 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
                       ),
                       SizedBox(height: 20),
                       Text(
-                        'مواعيد الأدوية',
+                        AppLocalizations.of(context)
+                            .translate('medicament-reminder'),
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                         textDirection: TextDirection.rtl,
+                        textAlign: TextAlign.center,
                       )
                     ],
                   ),
@@ -135,11 +139,13 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
                       ),
                       SizedBox(height: 20),
                       Text(
-                        'المراكز الطبية',
+                        AppLocalizations.of(context)
+                            .translate('medial-centres'),
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                         textDirection: TextDirection.rtl,
+                        textAlign: TextAlign.center,
                       )
                     ],
                   ),
@@ -165,6 +171,7 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
                       color: Colors.grey.shade200,
                       borderRadius: BorderRadius.all(Radius.circular(20.0))),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
                         "assets/images/vaccine.png",
@@ -172,11 +179,13 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
                       ),
                       SizedBox(height: 20),
                       Text(
-                        'تذكير بالمطاعيم',
+                        AppLocalizations.of(context)
+                            .translate('vaccine-reminder'),
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                         textDirection: TextDirection.rtl,
+                        textAlign: TextAlign.center,
                       )
                     ],
                   ),
@@ -199,11 +208,13 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
                       ),
                       SizedBox(height: 20),
                       Text(
-                        'توصيل الأدوية',
+                        AppLocalizations.of(context)
+                            .translate('medicament-delivery'),
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                         textDirection: TextDirection.rtl,
+                        textAlign: TextAlign.center,
                       )
                     ],
                   ),
